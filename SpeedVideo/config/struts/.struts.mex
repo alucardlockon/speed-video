@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="ssh-default" location="15,10" size="280,140">
+    <action name="mainAction" location="65,57" size="150,41">
+      <result name="save">
+        <resourceEdge source="save" routing="0" target="save.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="save.jsp" path="/WEB-INF/jsp/save.jsp" location="78,205" size="150,55" />
+  <include file="struts_user.xml" location="10,380" size="150,30" />
+</Struts2Diagram>
+

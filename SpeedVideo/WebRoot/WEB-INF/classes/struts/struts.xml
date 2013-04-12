@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<!-- 项目公共信息 -->
+<struts>
+	<!-- 全局常量 -->
+	<constant name="struts.devMode" value="true"></constant>
+		<constant name="struts.i18n.encoding" value="utf-8"></constant>
+		<!-- 自动加载struts2国际化配置文件 -->
+	<constant name="struts.i18n.reload" value="true"></constant>
+	<!-- 自动加载struts2所有配置文件
+	默认:flase只加载一次
+	开发模式:true 每次请求都加载配置文件
+	生产模式:false
+	 -->
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- 
+	是否使用浏览器缓存
+	默认:true 使用浏览器缓存
+	开发模式: false 获取实时数据
+	生产模式:true 从缓存数据获取
+	 -->
+	<constant name="struts.serve.static.browserCache" value="false"></constant>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<package name="ssh-default" extends="struts-default">
+		<default-action-ref name="mainAction"></default-action-ref>
+		<global-results>
+			<result name="error">/commons/error.jsp</result>
+		</global-results>
+		<action name="mainAction" class="mainAction">
+			<result name="index">/WEB-INF/jsp/index.jsp</result>
+		</action>
+	</package>
+	<!-- 引入其他struts2配置文件 -->
+	<include file="struts/struts_user.xml"></include>
+</struts>    

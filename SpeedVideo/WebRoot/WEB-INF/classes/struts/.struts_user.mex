@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="ssh-user" location="10,10" size="280,140">
+    <action name="userAction" location="65,47" size="150,62">
+      <result name="ok">
+        <resourceEdge source="ok" routing="0" target="ok.jsp" />
+      </result>
+      <result name="save">
+        <resourceEdge source="save" routing="0" target="save.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="ok.jsp" path="/WEB-INF/jsp/ok.jsp" location="78,205" size="150,55" />
+  <webResource name="save.jsp" path="/WEB-INF/jsp/save.jsp" location="353,30" size="150,55" />
+</Struts2Diagram>
+
