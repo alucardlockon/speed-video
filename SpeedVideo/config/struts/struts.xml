@@ -28,9 +28,12 @@
 			<result name="error">/commons/error.jsp</result>
 		</global-results>
 		<action name="mainAction" class="mainAction">
-			<result name="index">/WEB-INF/jsp/index.jsp</result>
+			<result name="index">/desktop/index.jsp</result>
+			<result name="mobileindex">/mobile/index.jsp</result>
 		</action>
 	</package>
 	<!-- 引入其他struts2配置文件 -->
 	<include file="struts/struts_user.xml"></include>
+	<include file="struts/struts_file.xml"></include>
+		<include file="struts/struts_category.xml"></include>
 </struts>    

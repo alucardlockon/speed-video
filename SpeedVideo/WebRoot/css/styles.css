@@ -1,0 +1,84 @@
+#logo-bar {
+	text-align: center;
+}
+
+#main-body {
+	margin-left: 5%;
+	margin-right: 5%;
+	height: 80%;
+}
+
+#left-list {
+	height: 100%;
+	width: 15%;
+	float: left;
+	text-align: left;
+	width: 15%;
+}
+
+.style-of-ul {
+	list-style: none;
+	font-family: "SimHei";
+	font-size: 17;
+}
+
+.style-of-ul a {
+	display: block;
+	width: 70%;
+}
+
+.style-of-ul a:hover {
+	color: #FFFFFF;
+	background: #0072E3;
+}
+
+a:link {
+	color: #666666;
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #FF0000;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+.video_content {
+	backgroud-color: #0072E3;
+}
+
+#content {
+	
+}
+
+#footer {
+	text-align: center;
+}
+
+.style-of-ul ul {
+	list-style: none;
+}
+
+.style-of-ul ul a:hover {
+	color: #FFFFFF;
+	background: #0072E3;
+}
+
+.title_text {
+	font-family: "FangSong";
+	font-size: 20;
+}
+
+.video_title {
+	font-family: "SimHei";
+	font-size: 14;
+}
+

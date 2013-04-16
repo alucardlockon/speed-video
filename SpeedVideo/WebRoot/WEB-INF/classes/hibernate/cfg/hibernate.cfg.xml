@@ -5,16 +5,32 @@
 <hibernate-configuration>
 
 <session-factory>
-
+	<!--
+		<property name="dialect"> org.hibernate.dialect.MySQLDialect
+		</property> <property
+		name="connection.username">${username}</property> <property
+		name="connection.password">${password}</property> <property
+		name="connection.driver_class"> ${driverClassName} </property>
+		<property name="hibernate.show_sql">true</property>
+	-->
+	<property name="myeclipse.connection.profile">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="connection.url">
+		jdbc:mysql://localhost:3306/speedvideo
+	</property>
+	<property name="connection.username">root</property>
+	<property name="connection.password">123456</property>
+	<property name="connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
 	<property name="dialect">
 		org.hibernate.dialect.MySQLDialect
 	</property>
-	<property name="connection.username">${username}</property>
-	<property name="connection.password">${password}</property>
-	<property name="connection.driver_class">
-		${driverClassName}
-	</property>
-	<property name="hibernate.show_sql">true</property>
+	<property name="connection.autocommit">true</property> 
+	<mapping resource="hibernate/hbm/Category.hbm.xml" />
+	<mapping resource="hibernate/hbm/Video.hbm.xml" />
+	
 </session-factory>
 
 </hibernate-configuration>

@@ -7,6 +7,12 @@
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
-<bean id="mainAction" class="com.ywh.web.action.MainAction"></bean>
+	<bean id="mainAction" class="com.ywh.web.action.MainAction"></bean>
+	<bean id="fileAction" class="com.ywh.web.action.FileAction">
+		<property name="fileBiz" ref="fileBizImpl"></property>
+	</bean>
+	<bean id="categoryAction" class="com.ywh.web.action.CategoryAction">
+		<property name="categoryBiz" ref="categoryBizImpl"></property>
+	</bean>
 
 </beans>

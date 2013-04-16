@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="ssh-default" location="15,10" size="280,140">
-    <action name="mainAction" location="65,57" size="150,41">
-      <result name="save">
-        <resourceEdge source="save" routing="0" target="save.jsp" />
+  <package name="ssh-default" location="0,0" size="0,0">
+    <action name="mainAction" location="0,0" size="0,0">
+      <result name="index">
+        <resourceEdge source="index" routing="0" target="index.jsp" />
+      </result>
+      <result name="mobileindex">
+        <resourceEdge source="mobileindex" routing="0" target="index.jsp" />
       </result>
     </action>
   </package>
-  <webResource name="save.jsp" path="/WEB-INF/jsp/save.jsp" location="78,205" size="150,55" />
-  <include file="struts_user.xml" location="10,380" size="150,30" />
+  <webResource name="index.jsp" path="/index.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="/desktop/index.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="/mobile/index.jsp" location="0,0" size="0,0" />
+  <include file="struts_user.xml" location="0,0" size="0,0" />
+  <include file="struts_file.xml" location="0,0" size="0,0" />
 </Struts2Diagram>
 

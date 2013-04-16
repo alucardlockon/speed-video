@@ -1,0 +1,70 @@
+package com.ywh.entity;
+
+import java.sql.Date;
+
+public class Video {
+	private int id;
+	private String title;
+	private String intro;
+	private String tag;
+	private String url;
+	private String image;
+	private Date upload_date;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
+
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public Date getUpload_date() {
+		return upload_date;
+	}
+
+	public void setUpload_date(Date uploadDate) {
+		upload_date = uploadDate;
+	}
+
+}
