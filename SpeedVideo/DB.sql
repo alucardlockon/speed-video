@@ -32,6 +32,7 @@ intro varchar(500),
 tag varchar(100),
 url varchar(100),
 image varchar(100) not null,
+views int(8),
 upload_date date
 );
 

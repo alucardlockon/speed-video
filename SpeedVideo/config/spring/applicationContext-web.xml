@@ -14,5 +14,7 @@
 	<bean id="categoryAction" class="com.ywh.web.action.CategoryAction">
 		<property name="categoryBiz" ref="categoryBizImpl"></property>
 	</bean>
-
+	<bean id="videoAction" class="com.ywh.web.action.VideoAction">
+		<property name="videoBiz" ref="videoBizImpl"></property>
+	</bean>
 </beans>

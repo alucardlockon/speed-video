@@ -13,4 +13,7 @@
 	<bean id="fileDaoImpl" class="com.ywh.dao.impl.FileDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="videoDaoImpl" class="com.ywh.dao.impl.VideoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 </beans>

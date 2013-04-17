@@ -6,4 +6,6 @@ public interface FileBiz {
 
 	void saveVideo(Video video);
 
+	void saveVideoImage(String fileName);
+
 }

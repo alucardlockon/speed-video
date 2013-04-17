@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 视频管理 -->
+	<package name="ssh-video" extends="ssh-default" namespace="/">
+		<action name="videoAction" class="videoAction">
+			<result name="showVideo">/commons/index_content.jsp</result>
+			<result name="play">/desktop/player.jsp</result>
+		</action>
+	</package>
+</struts>    

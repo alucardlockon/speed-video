@@ -9,6 +9,7 @@ public class Video {
 	private String tag;
 	private String url;
 	private String image;
+	private int views;
 	private Date upload_date;
 
 	public int getId() {
@@ -66,5 +67,14 @@ public class Video {
 	public void setUpload_date(Date uploadDate) {
 		upload_date = uploadDate;
 	}
+
+	public int getViews() {
+		return views;
+	}
+
+	public void setViews(int views) {
+		this.views = views;
+	}
+
 
 }

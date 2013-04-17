@@ -13,4 +13,7 @@
 	<bean id="fileBizImpl" class="com.ywh.biz.impl.FileBizImpl">
 		<property name="fileDao" ref="fileDaoImpl"></property>
 	</bean>
+	<bean id="videoBizImpl" class="com.ywh.biz.impl.VideoBizImpl">
+		<property name="videoDao" ref="videoDaoImpl"></property>
+	</bean>
 </beans>

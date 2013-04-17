@@ -36,4 +36,5 @@
 	<include file="struts/struts_user.xml"></include>
 	<include file="struts/struts_file.xml"></include>
 		<include file="struts/struts_category.xml"></include>
+		<include file="struts/struts_video.xml"></include>
 </struts>    

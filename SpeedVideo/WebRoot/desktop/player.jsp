@@ -29,7 +29,7 @@
 				</div>
 				<div id="content">
 					<div class="video_content">
-						<video src="${pageContext.request.contextPath}/videos/tgf.mp4"
+						<video src="${pageContext.request.contextPath}/videos/${video.url}"
 							controls="controls" preload="preload" height="240px"
 							width="432px">
 						<source type="video/mp4" />
