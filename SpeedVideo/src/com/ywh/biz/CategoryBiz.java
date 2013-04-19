@@ -10,4 +10,6 @@ public interface CategoryBiz {
 
 	List<Category> getSubCategories(int id);
 
+	Category getCategoryById(int id);
+
 }

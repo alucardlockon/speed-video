@@ -20,5 +20,9 @@ public class CategoryBizImpl implements CategoryBiz {
 	public List<Category> getSubCategories(int id) {
 		return categoryDao.findAllSubCategories(id);
 	}
+
+	public Category getCategoryById(int id) {
+		return categoryDao.findCategoryById(id);
+	}
 	
 }

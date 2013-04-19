@@ -6,6 +6,7 @@
 		<action name="videoAction" class="videoAction">
 			<result name="showVideo">/commons/index_content.jsp</result>
 			<result name="play">/desktop/player.jsp</result>
+			<result name="showByCategory">/desktop/categoryVideo.jsp</result>
 		</action>
 	</package>
 </struts>    

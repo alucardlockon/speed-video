@@ -29,4 +29,18 @@ public class VideoBizImpl implements VideoBiz {
 		return videoDao.findVideoById(id);
 	}
 
+	public void updateViews(Video video) {
+		video.setViews(video.getViews()+1);
+		videoDao.updateViews(video);
+	}
+
+	public List<Video> showByCategory(int id) {
+		return videoDao.showByCategory(id);
+	}
+
+	public List<Video> serach(String serachText) {
+		return videoDao.findVideoByText(serachText);
+	}
+
+
 }

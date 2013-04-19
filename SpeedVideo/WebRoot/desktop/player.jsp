@@ -13,23 +13,20 @@
 
 	<body>
 		<div id="body-container">
-			<form action="serach!serach">
-				<div id="logo-bar">
-					<a href="${pageContext.request.contextPath}"><img alt="速播视频"
-							src="${pageContext.request.contextPath}/images/title.png">
-					</a>
-					<input type="text" size="80%" id="serach_text" value="输入搜索内容" />
-					<input type="submit" value="搜索">
-
-				</div>
-			</form>
+			<div id="logo-bar">
+				<jsp:include page="../commons/logo_bar.jsp"></jsp:include>
+			</div>
 			<div id="main-body">
 				<div id="left-list">
-					<jsp:include page="../commons/left_bar.jsp"></jsp:include>
+					<s:action name="categoryAction!getCategory" executeResult="true"
+						namespace="/">
+					</s:action>
 				</div>
 				<div id="content">
+					<span id="videotitle">${video.title}</span>
 					<div class="video_content">
-						<video src="${pageContext.request.contextPath}/videos/${video.url}"
+						<video
+							src="${pageContext.request.contextPath}/videos/${video.url}"
 							controls="controls" preload="preload" height="240px"
 							width="432px">
 						<source type="video/mp4" />
@@ -39,6 +36,13 @@
 						<a href="http://firefox.com.cn/download/">FireFox</a>浏览器获得更好的体验。
 						</video>
 					</div>
+					<input type="button" value="喜欢" />
+					<br />
+					<span id="comment">评论数:0</span>
+					<br />
+					<span id="views">观看数:${video.views}</span>
+					<br />
+					评论:
 				</div>
 				<div id="right-list"></div>
 			</div>

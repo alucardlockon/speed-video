@@ -33,6 +33,7 @@ tag varchar(100),
 url varchar(100),
 image varchar(100) not null,
 views int(8),
+cid int(6),
 upload_date date
 );
 

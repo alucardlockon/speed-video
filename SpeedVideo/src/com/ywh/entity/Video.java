@@ -10,6 +10,7 @@ public class Video {
 	private String url;
 	private String image;
 	private int views;
+	private int cid;
 	private Date upload_date;
 
 	public int getId() {
@@ -76,5 +77,12 @@ public class Video {
 		this.views = views;
 	}
 
+	public int getCid() {
+		return cid;
+	}
+
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
 
 }

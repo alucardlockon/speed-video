@@ -10,7 +10,7 @@
 		<property name="name"></property>
 		<list name="subcategory" lazy="false">
 			<key column="pid"></key>
-			<index column="id" />
+			<index column="id"/>
 			<one-to-many class="com.ywh.entity.Category" />
 		</list>
 	</class>

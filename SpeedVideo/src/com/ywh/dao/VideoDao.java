@@ -14,4 +14,11 @@ public interface VideoDao {
 
 	Video findVideoById(int id);
 
+	void updateViews(Video video);
+
+	List<Video> showByCategory(int id);
+
+	List<Video> findVideoByText(String serachText);
+
+
 }

@@ -32,7 +32,8 @@ public class FileAction {
 					.lastIndexOf('.'))
 					+ ".jpg");
 			fileBiz.saveVideoImage(upvideoFileName);
-			video.setTitle(upvideoFileName);
+			video.setTitle(upvideoFileName.substring(0, upvideoFileName
+					.lastIndexOf('.')));
 			video.setUrl(upvideoFileName);
 			video.setUpload_date(new Date(System.currentTimeMillis()));
 			video.setViews(0);

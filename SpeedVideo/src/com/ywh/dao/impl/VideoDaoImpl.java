@@ -20,6 +20,7 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 	}
 
 	public List<Video> findIndexMostComment() {
+		// TODO:²éÑ¯´ýÍê³É
 		String hql = "from Video order by upload_date desc";
 		Query query = getSession().createQuery(hql);
 		query.setFirstResult(0);
@@ -28,7 +29,7 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 	}
 
 	public List<Video> findIndexViews() {
-		String hql = "from Video order by upload_date desc";
+		String hql = "from Video order by views desc";
 		Query query = getSession().createQuery(hql);
 		query.setFirstResult(0);
 		query.setMaxResults(4);
@@ -37,6 +38,22 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 
 	public Video findVideoById(int id) {
 		return (Video) this.getHibernateTemplate().get(Video.class, id);
+	}
+
+	public void updateViews(Video video) {
+		this.getHibernateTemplate().update(video);
+	}
+
+	public List<Video> showByCategory(int id) {
+		String hql = "from Video where cid=?";
+		return this.getHibernateTemplate().find(hql, id);
+	}
+
+	public List<Video> findVideoByText(String serachText) {
+		String hql = "from Video where title='%" + serachText
+				+ "%' or intro like '%" + serachText + "%' or tag like '%"
+				+ serachText + "%' order by upload_date desc";
+		return this.getHibernateTemplate().find(hql);
 	}
 
 }

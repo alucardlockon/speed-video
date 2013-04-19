@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="ssh-category" location="10,10" size="280,140">
-    <action name="categoryAction" location="65,57" size="150,41">
-      <result name="getCategory">
-        <resourceEdge source="getCategory" routing="0" target="left_bar.jsp" />
+  <package name="ssh-video" location="0,0" size="0,0">
+    <action name="videoAction" location="0,0" size="0,0">
+      <result name="showVideo">
+        <resourceEdge source="showVideo" routing="0" target="index_content.jsp" />
+      </result>
+      <result name="play">
+        <resourceEdge source="play" routing="0" target="player.jsp" />
+      </result>
+      <result name="showByCategory">
+        <resourceEdge source="showByCategory" routing="0" target="categoryVideo.jsp" />
+      </result>
+      <result name="showCategory">
+        <resourceEdge source="showCategory" routing="0" target="category_content.jsp" />
       </result>
     </action>
   </package>
   <webResource name="left_bar.jsp" path="/commons/left_bar.jsp" location="73,205" size="150,55" />
+  <webResource name="index_content.jsp" path="/commons/index_content.jsp" location="0,0" size="0,0" />
+  <webResource name="player.jsp" path="/desktop/player.jsp" location="0,0" size="0,0" />
+  <webResource name="categoryVideo.jsp" path="/desktop/categoryVideo.jsp" location="0,0" size="0,0" />
+  <webResource name="category_content.jsp" path="/desktop/category_content.jsp" location="0,0" size="0,0" />
 </Struts2Diagram>
 

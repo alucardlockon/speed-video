@@ -19,5 +19,9 @@ public class CategoryDaoImpl extends HibernateDaoSupport implements CategoryDao{
 		return this.getHibernateTemplate().find(hql,id);
 	}
 
+	public Category findCategoryById(int id) {
+		return (Category) this.getHibernateTemplate().get(Category.class, id);
+	}
+
 
 }

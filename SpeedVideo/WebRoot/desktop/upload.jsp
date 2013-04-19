@@ -13,16 +13,9 @@
 
 	<body>
 		<div id="body-container">
-			<form action="serach!serach">
-				<div id="logo-bar">
-					<a href="${pageContext.request.contextPath}"><img alt="速播视频"
-							src="${pageContext.request.contextPath}/images/title.png">
-					</a>
-					<input type="text" size="80%" id="serach_text" value="输入搜索内容" />
-					<input type="submit" value="搜索">
-
-				</div>
-			</form>
+			<div id="logo-bar">
+				<jsp:include page="../commons/logo_bar.jsp"></jsp:include>
+			</div>
 			<div id="main-body">
 				<div id="left-list">
 					<s:action name="categoryAction!getCategory" executeResult="true"

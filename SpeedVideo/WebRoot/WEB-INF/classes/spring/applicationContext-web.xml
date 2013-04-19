@@ -16,5 +16,6 @@
 	</bean>
 	<bean id="videoAction" class="com.ywh.web.action.VideoAction">
 		<property name="videoBiz" ref="videoBizImpl"></property>
+		<property name="categoryBiz" ref="categoryBizImpl"></property>
 	</bean>
 </beans>

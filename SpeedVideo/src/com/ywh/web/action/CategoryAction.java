@@ -11,7 +11,7 @@ public class CategoryAction {
 
 	public String getCategory() {
 		categories = categoryBiz.getAllCategories();
-		//Hibernate关联映射后不必使用此方法
+		// Hibernate关联映射后不必使用此方法
 		for (Category sub : categories) {
 			sub.setSubcategory(categoryBiz.getSubCategories(sub.getId()));
 		}

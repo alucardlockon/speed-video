@@ -13,6 +13,7 @@
 		<property name="url"></property>
 		<property name="image"></property>
 		<property name="views" type="int"></property>
+		<property name="cid"></property>
 		<property name="upload_date"></property>
 	</class>
 </hibernate-mapping>

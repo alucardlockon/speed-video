@@ -4,10 +4,10 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.po">
 	<class name="com.tarena.entity.User" table="t_user">
-	<id name="userId" column="user_id">
-	<generator class="native"></generator>
-	</id>
-	<property name="username" length="20"></property>
-	<property name="password" length="20"></property>
+		<id name="userId" column="user_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="username" length="20"></property>
+		<property name="password" length="20"></property>
 	</class>
 </hibernate-mapping>

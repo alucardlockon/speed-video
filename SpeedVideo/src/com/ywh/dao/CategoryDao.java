@@ -10,5 +10,7 @@ public interface CategoryDao {
 
 	List<Category> findAllSubCategories(int id);
 
+	Category findCategoryById(int id);
+
 
 }

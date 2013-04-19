@@ -14,4 +14,12 @@ public interface VideoBiz {
 
 	Video getVideoPlay(int id);
 
+	void updateViews(Video video);
+
+	List<Video> showByCategory(int id);
+
+	List<Video> serach(String serachText);
+
+
+
 }
