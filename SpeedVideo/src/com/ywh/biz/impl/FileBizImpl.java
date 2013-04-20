@@ -33,13 +33,8 @@ public class FileBizImpl implements FileBiz {
 			// 调用批处理文件
 			Runtime.getRuntime().exec(
 					cmd + " " + videoRealPath + " " + imageRealPath);
-
 		} catch (IOException e) {
-
-			// TODO Auto-generated catch block
-
 			e.printStackTrace();
-
 		}
 	}
 

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -57,6 +58,15 @@
 									</td>
 									<td>
 										<input type="text" name="video.tag">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										分类(请选择)
+									</td>
+									<td>
+										<s:action name="categoryAction!selector" executeResult="true"
+											namespace="/"></s:action>
 									</td>
 								</tr>
 								<tr>

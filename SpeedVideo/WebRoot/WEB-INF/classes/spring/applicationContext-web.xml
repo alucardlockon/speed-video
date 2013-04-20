@@ -18,4 +18,7 @@
 		<property name="videoBiz" ref="videoBizImpl"></property>
 		<property name="categoryBiz" ref="categoryBizImpl"></property>
 	</bean>
+	<bean id="userAction" class="com.ywh.web.action.UserAction">
+		<property name="userBiz" ref="userBizImpl"></property>
+	</bean>
 </beans>

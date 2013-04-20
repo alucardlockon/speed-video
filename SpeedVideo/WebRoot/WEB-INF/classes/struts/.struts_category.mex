@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="ssh-file" location="44,10" size="280,140">
-    <action name="fileAction" location="65,57" size="150,41">
-      <result name="upload">
-        <resourceEdge source="upload" routing="0" target="upload.jsp" />
+  <package name="ssh-category" location="0,0" size="0,0">
+    <action name="categoryAction" location="0,0" size="0,0">
+      <result name="getCategory">
+        <resourceEdge source="getCategory" routing="0" target="left_bar.jsp" />
       </result>
     </action>
   </package>
   <webResource name="upload.jsp" path="${pageContext.request.contextPath}/desktop/upload.jsp" location="9,205" size="150,55" />
+  <webResource name="left_bar.jsp" path="/commons/left_bar.jsp" location="0,0" size="0,0" />
 </Struts2Diagram>
 

@@ -16,5 +16,6 @@
   <include file="struts_user.xml" location="0,0" size="0,0" />
   <include file="struts_file.xml" location="0,0" size="0,0" />
   <include file="struts_category.xml" location="0,0" size="0,0" />
+  <include file="struts_video.xml" location="0,0" size="0,0" />
 </Struts2Diagram>
 

@@ -16,4 +16,7 @@
 	<bean id="videoDaoImpl" class="com.ywh.dao.impl.VideoDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="userDaoImpl" class="com.ywh.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 </beans>

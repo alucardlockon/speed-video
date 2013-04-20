@@ -27,10 +27,11 @@
 	<property name="dialect">
 		org.hibernate.dialect.MySQLDialect
 	</property>
-	<property name="connection.autocommit">true</property> 
+	<property name="connection.autocommit">true</property>
 	<mapping resource="hibernate/hbm/Category.hbm.xml" />
 	<mapping resource="hibernate/hbm/Video.hbm.xml" />
-	
+	<mapping resource="hibernate/hbm/User.hbm.xml" />
+
 </session-factory>
 
 </hibernate-configuration>

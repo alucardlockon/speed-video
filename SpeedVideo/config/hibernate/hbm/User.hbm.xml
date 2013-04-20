@@ -2,12 +2,20 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.po">
-	<class name="com.tarena.entity.User" table="t_user">
-		<id name="userId" column="user_id">
+<hibernate-mapping>
+	<class name="com.ywh.entity.User" table="t_user">
+		<id name="id">
 			<generator class="native"></generator>
 		</id>
-		<property name="username" length="20"></property>
-		<property name="password" length="20"></property>
+		<property name="username"></property>
+		<property name="password"></property>
+		<property name="name"></property>
+		<property name="email"></property>
+		<property name="gender"></property>
+		<property name="intro"></property>
+		<property name="photo"></property>
+		<property name="rights"></property>
+		<property name="regist_date"></property>
+		<property name="last_login"></property>
 	</class>
 </hibernate-mapping>

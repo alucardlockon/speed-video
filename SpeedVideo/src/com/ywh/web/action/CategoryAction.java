@@ -18,6 +18,14 @@ public class CategoryAction {
 		return "getCategory";
 	}
 
+	public String selector() {
+		categories = categoryBiz.getAllCategories();
+		for (Category sub : categories) {
+			sub.setSubcategory(categoryBiz.getSubCategories(sub.getId()));
+		}
+		return "selector";
+	}
+
 	public List<Category> getCategories() {
 		return categories;
 	}

@@ -4,8 +4,9 @@
 	<!-- 目录管理 -->
 
 	<package name="ssh-category" extends="ssh-default" namespace="/">
-	<action name="categoryAction" class="categoryAction">
-	<result name="getCategory">/commons/left_bar.jsp</result>
-	</action>
+		<action name="categoryAction" class="categoryAction">
+			<result name="getCategory">/commons/left_bar.jsp</result>
+			<result name="selector">/commons/category_selector.jsp</result>
+		</action>
 	</package>
 </struts>    

@@ -5,10 +5,10 @@
 		<a href="${pageContext.request.contextPath}">首页</a>
 	</li>
 	<li>
-		<a href="#" id="regist">注册</a>
+		<a href="#" id="regist">快速注册</a>
 	</li>
 	<li>
-		<a href="#" id="login">登录</a>
+		<a href="#" id="login">快速登录</a>
 	</li>
 	<li>
 		<a href="#">我的最爱</a>

@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <div class="lastest_content">
-	<a href="" class="title_text">${subcategory.name}-${maincategory.name}</a>
+	<a href="#" class="title_text">${subcategory.name}-${maincategory.name}</a>
 	<br />
 	<table>
 		<s:iterator value="videolist" status="status">
