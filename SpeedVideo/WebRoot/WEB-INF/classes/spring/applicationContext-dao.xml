@@ -19,4 +19,7 @@
 	<bean id="userDaoImpl" class="com.ywh.dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="commentDaoImpl" class="com.ywh.dao.impl.CommentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 </beans>

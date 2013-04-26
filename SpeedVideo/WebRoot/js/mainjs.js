@@ -30,7 +30,7 @@ $(function() {
 					function() {
 						$(this)
 								.after(
-										"<div id='login_block'><form method='post' action='userAction!quickLogin'><table><tr><td>用户名</td></tr><td><input type='text' name='user.username' style='width:70%'></td></tr><tr><td>密码</td></tr><td><input type='text' name='user.password'  style='width:70%'></td></tr><tr><td><input type='submit' value='登陆'/></td></tr></table></form></div>");
+										"<div id='login_block'><form method='post' action='userAction!quickLogin'><table><tr><td>用户名</td></tr><td><input type='text' name='user.username' value='' style='width:70%'></td></tr><tr><td>密码</td></tr><td><input type='text' name='user.password' value=''  style='width:70%'></td></tr><tr><td><input type='submit' value='登陆'/></td></tr></table></form></div>");
 					}, function() {
 						$('#login_block').remove();
 					});

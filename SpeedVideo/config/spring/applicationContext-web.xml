@@ -21,4 +21,7 @@
 	<bean id="userAction" class="com.ywh.web.action.UserAction">
 		<property name="userBiz" ref="userBizImpl"></property>
 	</bean>
+	<bean id="commentAction" class="com.ywh.web.action.CommentAction">
+		<property name="commentBiz" ref="commentBizImpl"></property>
+	</bean>
 </beans>

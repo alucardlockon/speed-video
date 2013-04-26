@@ -58,7 +58,8 @@ create table t_comment(
 id int(6) primary key auto_increment,
 vid int(6),
 row int(6) not null,
-content varchar(255) not null
+content varchar(255) not null,
+postdate datetime 
 );
 
 drop table if exists t_category;

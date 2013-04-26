@@ -1,7 +1,7 @@
 package com.ywh.web.action;
 
 import java.io.File;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.servlet.ServletContext;
 
@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.ywh.biz.FileBiz;
+import com.ywh.entity.User;
 import com.ywh.entity.Video;
 
 public class FileAction {
@@ -18,6 +19,7 @@ public class FileAction {
 	private String filemessage;
 	private Video video;
 	private FileBiz fileBiz;
+	private User user;
 
 	public String upload() throws Exception {
 		try {
@@ -39,6 +41,8 @@ public class FileAction {
 			video.setViews(0);
 			fileBiz.saveVideo(video);
 			filemessage = "上传成功";// 设置上传信息
+			//更新videolist表
+			fileBiz.addtoVideolist(user,video);
 			return "upload";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -91,4 +95,12 @@ public class FileAction {
 		this.filemessage = filemessage;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 }

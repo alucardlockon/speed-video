@@ -81,6 +81,9 @@
 							<!--  <input type="hidden" id="hidden_message" name="filemessage"
 								value="${filemessage}" />
 								-->
+							<input type="hidden" id="user_message" name="user.id"
+								value="${sessionScope.user.id}" />
+
 						</form>
 					</div>
 				</div>

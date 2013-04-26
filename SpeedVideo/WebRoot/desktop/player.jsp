@@ -36,13 +36,25 @@
 						<a href="http://firefox.com.cn/download/">FireFox</a>浏览器获得更好的体验。
 						</video>
 					</div>
-					<input type="button" value="喜欢" />
+					<input type="button" value="喜欢" onclick="location='videoAction!addtoFav?video.id=${video.id}'"/>
+					<br />
+					影片简介:<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;${video.intro}
 					<br />
 					<span id="comment">评论数:0</span>
 					<br />
 					<span id="views">观看数:${video.views}</span>
 					<br />
 					评论:
+					<div id="comment_form">
+					<c:if test="${!empty sessionScope.user}" var="rs">
+					<form action="commentAction">
+					<textarea rows="5" name="comment.content" style="width:40%"></textarea>
+					<br/>
+					<input type="submit" value="我要评论"/>
+					</form>
+					</c:if>
+					</div>
 				</div>
 				<div id="right-list"></div>
 			</div>

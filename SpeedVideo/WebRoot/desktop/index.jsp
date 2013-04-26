@@ -7,6 +7,7 @@
 		<%@include file="../commons/header.jsp"%>
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/js/userAgent.js">
+			
 </script>
 
 	</head>

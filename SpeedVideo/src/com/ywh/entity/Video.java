@@ -1,6 +1,7 @@
 package com.ywh.entity;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
 
 public class Video {
 	private int id;
@@ -85,4 +86,6 @@ public class Video {
 		this.cid = cid;
 	}
 
+
+	
 }

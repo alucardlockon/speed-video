@@ -1,9 +1,10 @@
 package com.ywh.web.action;
 
-import java.sql.Date;
+import java.util.Date;
 
 import com.ywh.biz.UserBiz;
 import com.ywh.entity.User;
+import com.ywh.util.CookieUtil;
 
 public class UserAction extends BaseAction {
 	UserBiz userBiz;
@@ -24,11 +25,19 @@ public class UserAction extends BaseAction {
 			if (validUser.getPassword().equals(user.getPassword())) {
 				userBiz.updateLastLogin(validUser);
 				session.put("user", validUser);
+				CookieUtil.addCookie("username",validUser.getUsername(),response);
+				CookieUtil.addCookie("password",validUser.getPassword(),response);
 				return "login";
 			}
 		}
 		return "error";
 	}
+
+	public String exitlogin() {
+		session.remove("user");
+		return "login";
+	}
+	
 
 	// TODO:ÍêÕû×¢²áµÇÂ¼
 	public String regist() {

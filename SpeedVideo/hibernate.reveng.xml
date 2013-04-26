@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="t_category" catalog="speedvideo"
+		class="com.ywh.entity.Category">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+<table name="t_comment" catalog="speedvideo"
+	class="com.ywh.entity.Comment">
+	<primary-key>
+		<generator class="native"></generator>
+	</primary-key>
+</table>
+<table name="t_commentlist" catalog="speedvideo"
+		class="com.ywh.entity.Commentlist">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_favoritelist" catalog="speedvideo"
+		class="com.ywh.entity.Favoritelist">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_user" catalog="speedvideo"
+		class="com.ywh.entity.User">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_video" catalog="speedvideo"
+		class="com.ywh.entity.Video">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_videolist" catalog="speedvideo"
+		class="com.ywh.entity.Videolist">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+</hibernate-reverse-engineering>

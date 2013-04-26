@@ -7,6 +7,8 @@
 			<result name="showVideo">/commons/index_content.jsp</result>
 			<result name="play">/desktop/player.jsp</result>
 			<result name="showByCategory">/desktop/categoryVideo.jsp</result>
+			<result name="favlist">/desktop/favorite.jsp</result>
+			<result name="addtoFav">/desktop/player.jsp</result>
 		</action>
 	</package>
 </struts>    

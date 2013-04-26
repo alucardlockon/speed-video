@@ -5,15 +5,18 @@ import java.util.List;
 import com.ywh.biz.CategoryBiz;
 import com.ywh.biz.VideoBiz;
 import com.ywh.entity.Category;
+import com.ywh.entity.User;
 import com.ywh.entity.Video;
 
-public class VideoAction {
+public class VideoAction extends BaseAction {
 	private VideoBiz videoBiz;
 	private CategoryBiz categoryBiz;
 	private List<Video> news;
 	private List<Video> views;
 	private List<Video> mostComments;
 	private List<Video> videolist;
+	private List<Video> videolist2;
+	private List<Video> videolist3;
 	private Video video;
 	private Category subcategory;// 分类
 	private Category maincategory;// 上一层分类
@@ -40,11 +43,31 @@ public class VideoAction {
 		return "showByCategory";
 	}
 
+	public String favlist() {
+		User user = (User) session.get("user");
+		List<Integer> idlist = videoBiz.findIdByFavorite(user);
+		List<Integer> idlist2 = videoBiz.findIdByVideolist(user);
+		List<Integer> idlist3 = videoBiz.findIdByFavorite(user);
+		videolist = videoBiz.showBylist(idlist);
+		videolist2 = videoBiz.showBylist(idlist2);
+		videolist3 = videoBiz.showBylist(idlist2);
+		return "favlist";
+	}
+
+	public String addtoFav() {
+		User user = (User) session.get("user");
+		Object valid=videoBiz.validFav(user.getId(),video.getId());
+		if(valid==null){
+		videoBiz.addtoFav(video.getId(),user);
+		}
+		return "addtoFav" ;
+	}
+
 	/**
 	 * 搜索
 	 */
 	public String serach() {
-		videolist=videoBiz.serach(serach_text);
+		videolist = videoBiz.serach(serach_text);
 		return "showByCategory";
 	}
 
@@ -120,4 +143,24 @@ public class VideoAction {
 		serach_text = serachText;
 	}
 
+	public List<Video> getVideolist2() {
+		return videolist2;
+	}
+
+	public void setVideolist2(List<Video> videolist2) {
+		this.videolist2 = videolist2;
+	}
+
+	public List<Video> getVideolist3() {
+		return videolist3;
+	}
+
+	public void setVideolist3(List<Video> videolist3) {
+		this.videolist3 = videolist3;
+	}
+
+	public VideoBiz getVideoBiz() {
+		return videoBiz;
+	}
+	
 }

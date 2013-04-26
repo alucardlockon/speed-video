@@ -22,7 +22,7 @@
 			</td>
 		</tr>
 		<tr>
-			<s:iterator value="views" var="video">
+			<s:iterator value="news" var="video">
 				<td>
 					<a
 						href="${pageContext.request.contextPath}/videoAction!play?video.id=${id}"
@@ -92,7 +92,7 @@
 			</td>
 		</tr>
 		<tr>
-			<s:iterator value="views" var="video">
+			<s:iterator value="mostComments" var="video">
 				<td>
 					<a
 						href="${pageContext.request.contextPath}/videoAction!play?video.id=${id}"

@@ -19,4 +19,7 @@
 	<bean id="userBizImpl" class="com.ywh.biz.impl.UserBizImpl">
 		<property name="userDao" ref="userDaoImpl"></property>
 	</bean>
+	<bean id="commentBizImpl" class="com.ywh.biz.impl.CommentBizImpl">
+		<property name="commentDao" ref="commentDaoImpl"></property>
+	</bean>
 </beans>

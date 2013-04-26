@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="ssh-category" location="10,10" size="280,140">
+    <action name="categoryAction" location="65,47" size="150,62">
+      <result name="getCategory">
+        <resourceEdge source="getCategory" routing="0" target="left_bar.jsp" />
+      </result>
+      <result name="selector">
+        <resourceEdge source="selector" routing="0" target="category_selector.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="left_bar.jsp" path="/commons/left_bar.jsp" location="73,205" size="150,55" />
+  <webResource name="category_selector.jsp" path="/commons/category_selector.jsp" location="358,30" size="150,55" />
+</Struts2Diagram>
+

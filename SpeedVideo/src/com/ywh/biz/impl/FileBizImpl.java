@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.ywh.biz.FileBiz;
 import com.ywh.dao.FileDao;
+import com.ywh.entity.User;
 import com.ywh.entity.Video;
 
 public class FileBizImpl implements FileBiz {
@@ -36,6 +37,10 @@ public class FileBizImpl implements FileBiz {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void addtoVideolist(User user, Video video) {
+		fileDao.savetoVideolist(user,video);
 	}
 
 }
