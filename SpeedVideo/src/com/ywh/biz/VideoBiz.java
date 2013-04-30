@@ -2,6 +2,7 @@ package com.ywh.biz;
 
 import java.util.List;
 
+import com.ywh.entity.Comment;
 import com.ywh.entity.User;
 import com.ywh.entity.Video;
 
@@ -30,5 +31,7 @@ public interface VideoBiz {
 	List<Integer> findIdByVideolist(User user);
 
 	List<Video> showBylist(List<Integer> idlist2);
+
+	List<Comment> getComments(Video video);
 
 }

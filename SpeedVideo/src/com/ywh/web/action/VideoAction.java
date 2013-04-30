@@ -5,33 +5,33 @@ import java.util.List;
 import com.ywh.biz.CategoryBiz;
 import com.ywh.biz.VideoBiz;
 import com.ywh.entity.Category;
+import com.ywh.entity.Comment;
 import com.ywh.entity.User;
 import com.ywh.entity.Video;
 
 public class VideoAction extends BaseAction {
 	private VideoBiz videoBiz;
 	private CategoryBiz categoryBiz;
-	private List<Video> news;
-	private List<Video> views;
-	private List<Video> mostComments;
 	private List<Video> videolist;
 	private List<Video> videolist2;
 	private List<Video> videolist3;
+	private List<Comment> comments;
 	private Video video;
 	private Category subcategory;// 分类
 	private Category maincategory;// 上一层分类
 	private String serach_text;// 搜索关键字
 
 	public String showVideo() {
-		news = videoBiz.getIndexNew();
-		views = videoBiz.getIndexViews();
-		mostComments = videoBiz.getIndexMostComment();
+		videolist = videoBiz.getIndexNew();
+		videolist2 = videoBiz.getIndexViews();
+		videolist3 = videoBiz.getIndexMostComment();
 		return "showVideo";
 	}
 
 	public String play() {
 		video = videoBiz.getVideoPlay(video.getId());
 		videoBiz.updateViews(video);
+		comments=videoBiz.getComments(video);
 		return "play";
 	}
 
@@ -73,30 +73,6 @@ public class VideoAction extends BaseAction {
 
 	public void setVideoBiz(VideoBiz videoBiz) {
 		this.videoBiz = videoBiz;
-	}
-
-	public List<Video> getNews() {
-		return news;
-	}
-
-	public void setNews(List<Video> news) {
-		this.news = news;
-	}
-
-	public List<Video> getViews() {
-		return views;
-	}
-
-	public void setViews(List<Video> views) {
-		this.views = views;
-	}
-
-	public List<Video> getMostComments() {
-		return mostComments;
-	}
-
-	public void setMostComments(List<Video> mostComments) {
-		this.mostComments = mostComments;
 	}
 
 	public Video getVideo() {
@@ -161,6 +137,14 @@ public class VideoAction extends BaseAction {
 
 	public VideoBiz getVideoBiz() {
 		return videoBiz;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 	
 }

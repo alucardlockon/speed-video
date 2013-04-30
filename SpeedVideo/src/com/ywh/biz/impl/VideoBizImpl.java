@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ywh.biz.VideoBiz;
 import com.ywh.dao.VideoDao;
+import com.ywh.entity.Comment;
 import com.ywh.entity.User;
 import com.ywh.entity.Video;
 
@@ -63,6 +64,10 @@ public class VideoBizImpl implements VideoBiz {
 
 	public List<Video> showBylist(List<Integer> idlist) {
 		return videoDao.showBylist(idlist);
+	}
+
+	public List<Comment> getComments(Video video) {
+		return videoDao.findByCommentsByVid(video.getId());
 	}
 
 

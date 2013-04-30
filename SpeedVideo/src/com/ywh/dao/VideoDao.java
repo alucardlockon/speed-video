@@ -2,6 +2,7 @@ package com.ywh.dao;
 
 import java.util.List;
 
+import com.ywh.entity.Comment;
 import com.ywh.entity.User;
 import com.ywh.entity.Video;
 
@@ -30,5 +31,7 @@ public interface VideoDao {
 	List<Integer> findIdByVideolist(int id);
 
 	List<Video> showBylist(List<Integer> idlist);
+
+	List<Comment> findByCommentsByVid(int id);
 
 }

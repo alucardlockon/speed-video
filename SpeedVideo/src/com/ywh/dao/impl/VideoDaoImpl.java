@@ -7,6 +7,7 @@ import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.ywh.dao.VideoDao;
+import com.ywh.entity.Comment;
 import com.ywh.entity.User;
 import com.ywh.entity.Video;
 
@@ -51,7 +52,7 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 	}
 
 	public List<Video> findVideoByText(String serachText) {
-		String hql = "from Video where title='%" + serachText
+		String hql = "from Video where title like '%" + serachText
 				+ "%' or intro like '%" + serachText + "%' or tag like '%"
 				+ serachText + "%' order by upload_date desc";
 		return this.getHibernateTemplate().find(hql);
@@ -104,6 +105,11 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 		query.setFirstResult(0);
 		query.setMaxResults(4);
 		return query.list();
+	}
+
+	public List<Comment> findByCommentsByVid(int id) {
+		String hql = "from Comment where vid=?";
+		return this.getHibernateTemplate().find(hql, id);
 	}
 
 }
