@@ -10,4 +10,6 @@ public interface UserDao {
 
 	void updateLastLogin(User validUser);
 
+	User findUserById(int id);
+
 }

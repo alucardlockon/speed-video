@@ -8,6 +8,14 @@
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/js/userAgent.js">
 </script>
+		<script type="text/javascript">
+$(function() {
+	$('#content').click(function() {
+		var s = $('.comments').length;
+		$('#row').val(s + 1);
+	})
+})
+</script>
 
 	</head>
 
@@ -49,33 +57,43 @@
 					<br />
 					评论:
 					<blockquote style="">
-					<s:iterator value="comments">
-						<table>
-							<thead>
-								<tr>
-									<th>
-										用户:<a href="#">${id}</a>
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										${content}
-									</td>
-								</tr>
-							</tbody>
-							<tfoot>
-							</tfoot>
-						</table>
-					</s:iterator>
+						<s:iterator value="comments">
+							<table class="comments">
+								<thead>
+									<tr>
+										<th>
+											${row}楼 &nbsp;用户:
+											<a href="userAction!userinfo?user.id=${uid}">${uid}</a>&nbsp;评论id:${id}
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											${content}
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<small><i> 发表于: <s:date name="postdate"
+														format="yyyy-MM-dd hh:mm:ss" /> </i>
+											</small>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+								</tfoot>
+							</table>
+						</s:iterator>
 					</blockquote>
 					<div id="comment_form">
 						<c:if test="${!empty sessionScope.user}" var="rs">
 							<form action="commentAction">
-								<textarea rows="5" name="comment.content" style="width: 40%"></textarea>
+								<textarea rows="5" id="content" name="comment.content"
+									style="width: 40%"></textarea>
 								<br />
 								<input type="submit" value="我要评论" />
+								<input type="hidden" id="row" name="comment.row" value="1">
 								<input type="hidden" name="comment.vid" value="${video.id}">
 							</form>
 						</c:if>

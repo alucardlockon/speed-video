@@ -27,4 +27,8 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 		this.getHibernateTemplate().update(validUser);
 	}
 
+	public User findUserById(int id) {
+		return (User) this.getHibernateTemplate().get(User.class, id);
+	}
+
 }

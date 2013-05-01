@@ -10,4 +10,6 @@ public interface UserBiz {
 
 	void updateLastLogin(User validUser);
 
+	User findUserById(int id);
+
 }

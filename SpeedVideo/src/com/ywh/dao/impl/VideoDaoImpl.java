@@ -108,8 +108,8 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 	}
 
 	public List<Comment> findByCommentsByVid(int id) {
-		String hql = "from Comment where vid=?";
-		return this.getHibernateTemplate().find(hql, id);
+		 String hql = "from Comment where vid=?";
+		 return this.getHibernateTemplate().find(hql, id);
 	}
 
 }

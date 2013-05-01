@@ -26,4 +26,8 @@ public class UserBizImpl implements UserBiz {
 		userDao.updateLastLogin(validUser);
 	}
 
+	public User findUserById(int id) {
+		return userDao.findUserById(id);
+	}
+
 }

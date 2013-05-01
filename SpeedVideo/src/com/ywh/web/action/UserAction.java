@@ -1,13 +1,18 @@
 package com.ywh.web.action;
 
 import java.util.Date;
+import java.util.List;
 
 import com.ywh.biz.UserBiz;
+import com.ywh.biz.VideoBiz;
 import com.ywh.entity.User;
+import com.ywh.entity.Video;
 import com.ywh.util.CookieUtil;
 
 public class UserAction extends BaseAction {
 	UserBiz userBiz;
+	VideoBiz videoBiz;
+	List<Video> videolist;
 	User user;
 
 	public String quickRegist() {
@@ -25,8 +30,10 @@ public class UserAction extends BaseAction {
 			if (validUser.getPassword().equals(user.getPassword())) {
 				userBiz.updateLastLogin(validUser);
 				session.put("user", validUser);
-				CookieUtil.addCookie("username",validUser.getUsername(),response);
-				CookieUtil.addCookie("password",validUser.getPassword(),response);
+				CookieUtil.addCookie("username", validUser.getUsername(),
+						response);
+				CookieUtil.addCookie("password", validUser.getPassword(),
+						response);
 				return "login";
 			}
 		}
@@ -37,7 +44,16 @@ public class UserAction extends BaseAction {
 		session.remove("user");
 		return "login";
 	}
-	
+
+	/*
+	 * 展示用户信息
+	 */
+	public String userinfo() {
+		user = userBiz.findUserById(user.getId());
+		List<Integer> ids = videoBiz.findIdByVideolist(user);
+		videolist = videoBiz.showBylist(ids);
+		return "userinfo";
+	}
 
 	// TODO:完整注册登录
 	public String regist() {
@@ -60,6 +76,18 @@ public class UserAction extends BaseAction {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<Video> getVideolist() {
+		return videolist;
+	}
+
+	public void setVideolist(List<Video> videolist) {
+		this.videolist = videolist;
+	}
+
+	public void setVideoBiz(VideoBiz videoBiz) {
+		this.videoBiz = videoBiz;
 	}
 
 }

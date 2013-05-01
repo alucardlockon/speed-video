@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="ssh-user" location="10,10" size="280,140" />
+  <package name="ssh-user" location="10,10" size="280,140">
+    <action name="userAction" location="0,0" size="0,0">
+      <result name="login">
+        <resourceEdge source="login" routing="0" target="login.jsp" />
+      </result>
+      <result name="regist">
+        <resourceEdge source="regist" routing="0" target="regist.jsp" />
+      </result>
+    </action>
+  </package>
   <webResource name="ok.jsp" path="/WEB-INF/jsp/ok.jsp" location="78,205" size="150,55" />
   <webResource name="save.jsp" path="/WEB-INF/jsp/save.jsp" location="353,30" size="150,55" />
+  <webResource name="login.jsp" path="/desktop/login.jsp" location="0,0" size="0,0" />
+  <webResource name="regist.jsp" path="/desktop/regist.jsp" location="0,0" size="0,0" />
 </Struts2Diagram>
 

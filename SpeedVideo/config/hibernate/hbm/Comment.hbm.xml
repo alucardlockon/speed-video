@@ -8,6 +8,13 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="vid"></property>
+		<property name="uid"></property>
+		<!--
+			<one-to-one name="video" class="com.ywh.entity.Video"
+			constrained="true" property-ref="id"></one-to-one> <one-to-one
+			name="user" class="com.ywh.entity.User" constrained="true"
+			property-ref="id"></one-to-one>
+		-->
 		<property name="row"></property>
 		<property name="content"></property>
 		<property name="postdate"></property>

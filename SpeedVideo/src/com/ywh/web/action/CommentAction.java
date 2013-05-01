@@ -14,10 +14,10 @@ public class CommentAction extends BaseAction {
 
 	public String execute() {
 		comment.setPostdate(new Date(System.currentTimeMillis()));
-		comment.setRow(1);
-		commentBiz.comment(comment);
+		// comment.setRow(1);
 		User user = (User) session.get("user");
-		commentBiz.updateCommentlist(user, comment);
+		comment.setUid(user.getId());
+		commentBiz.comment(comment);
 		return SUCCESS;
 	}
 

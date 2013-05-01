@@ -5,6 +5,7 @@ import java.util.Date;
 public class Comment {
 	private int id;
 	private int vid;
+	private int uid;
 	private int row;
 	private String content;
 	private Date postdate;
@@ -15,14 +16,6 @@ public class Comment {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getVid() {
-		return vid;
-	}
-
-	public void setVid(int vid) {
-		this.vid = vid;
 	}
 
 	public int getRow() {
@@ -47,6 +40,22 @@ public class Comment {
 
 	public void setPostdate(Date postdate) {
 		this.postdate = postdate;
+	}
+
+	public int getVid() {
+		return vid;
+	}
+
+	public void setVid(int vid) {
+		this.vid = vid;
+	}
+
+	public int getUid() {
+		return uid;
+	}
+
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
 
 }

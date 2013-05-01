@@ -20,6 +20,7 @@
 	</bean>
 	<bean id="userAction" class="com.ywh.web.action.UserAction">
 		<property name="userBiz" ref="userBizImpl"></property>
+		<property name="videoBiz" ref="videoBizImpl"></property>
 	</bean>
 	<bean id="commentAction" class="com.ywh.web.action.CommentAction">
 		<property name="commentBiz" ref="commentBizImpl"></property>
