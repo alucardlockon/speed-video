@@ -10,6 +10,7 @@
 	<bean id="mainAction" class="com.ywh.web.action.MainAction"></bean>
 	<bean id="fileAction" class="com.ywh.web.action.FileAction">
 		<property name="fileBiz" ref="fileBizImpl"></property>
+		<property name="userBiz" ref="userBizImpl"></property>
 	</bean>
 	<bean id="categoryAction" class="com.ywh.web.action.CategoryAction">
 		<property name="categoryBiz" ref="categoryBizImpl"></property>

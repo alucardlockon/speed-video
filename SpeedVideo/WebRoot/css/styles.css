@@ -82,9 +82,14 @@ a:active {
 	font-size: 14;
 }
 
-<!-- video.js-->
-.
+#videoscore {
+	font-family: "SimHei";
+	font-size: 30;
+	font-style: italic;
+	color: #FFD306;
+}
 
-
-
-
+#title {
+	font-family: "SimHei";
+	font-size: 25;
+}

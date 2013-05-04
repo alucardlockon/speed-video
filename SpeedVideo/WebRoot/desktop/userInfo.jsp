@@ -28,17 +28,16 @@
 						<tr>
 							<td colspan="2">
 								<img src="images/${user.photo}" alt="" width="180" height="120" />
-								<a href="#">更换头像</a>
 							</td>
 						</tr>
+						<c:if test="${sessionScope.user.id==user.id}">
 						<tr>
-							<td>
-								ID
-							</td>
-							<td>
-								${user.id}
-							</td>
+						<td>
+						<a href="${pageContext.request.contextPath}/desktop/uploadImage.jsp">更换头像</a></td>
+						<td>
+						<a href="${pageContext.request.contextPath}/desktop/editUser.jsp">修改资料</a></td>
 						</tr>
+						</c:if>
 						<tr>
 							<td>
 								用户名
@@ -97,6 +96,7 @@
 							</td>
 						</tr>
 					</table>
+					<span id='followuser'><a href="#">follow该用户</a></span>
 					<div class="userUp">
 						<a href="" class="title_text">用户视频</a>
 						<br />

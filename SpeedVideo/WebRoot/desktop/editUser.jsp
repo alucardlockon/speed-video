@@ -3,10 +3,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>首页 - 速播视频 - Html5视频，电影，电视剧，动漫</title>
+		<title>用户信息 - 速播视频 - Html5视频，电影，电视剧，动漫</title>
 		<%@include file="../commons/header.jsp"%>
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/js/userAgent.js">
+
 </script>
 
 	</head>
@@ -23,82 +24,63 @@
 					</s:action>
 				</div>
 				<div id="content">
-					<div id='regist_block'>
-						<form method='post' action='userAction!regist'>
+					<c:if test="${!empty sessionScope.user}">
+						<form method="post" action="userAction!editintro">
 							<table>
+								<tr>
+									<td colspan="2">
+										<img src="images/${sessionScope.user.photo}" alt="" width="180"
+											height="120" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<a href="javascript:" onclick="history.back()">返回</a>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										ID
+									</td>
+									<td>
+										${sessionScope.user.id}
+									</td>
+								</tr>
 								<tr>
 									<td>
 										用户名
 									</td>
 									<td>
-										<input type='text' name='user.username' style='width: 70%'>
+										${sessionScope.user.username}
 									</td>
 								</tr>
 								<tr>
 									<td>
-										密码
+										email
 									</td>
 									<td>
-										<input type='text' name='user.password' style='width: 70%'>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										重复密码
-									</td>
-									<td>
-										<input type='text' name='repassword' style='width: 70%'>
+										${sessionScope.user.email}
 									</td>
 								</tr>
 								<tr>
 									<td>
-										真实姓名
+										个人介绍
 									</td>
 									<td>
-										<input type='text' name='user.name' style='width: 70%'>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										电子邮箱
-									</td>
-									<td>
-										<input type='text' name='user.email' style='width: 70%'>
+										<textarea rows="5" name="intro">${sessionScope.user.intro}</textarea>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										性别
+										<input type="button" onlick="history.back()" value="返回">
 									</td>
 									<td>
-										<input type="radio" name='user.gender' value='保密'
-											checked="checked" />
-										保密
-										<input type="radio" name='user.gender' value='男' />
-										男
-										<input type="radio" name='user.gender' value='女' />
-										女
-									</td>
-								</tr>
-								<tr>
-									<td>
-										验证码
-									</td>
-									<td>
-										<input type='text' name='validcode' style='width: 70%'>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type='reset' value='重置' />
-									</td>
-									<td>
-										<input type='submit' value='注册' />
+									<input type="submit" value="确定">
 									</td>
 								</tr>
 							</table>
 						</form>
-					</div>
+					</c:if>
 					<div id="right-list"></div>
 				</div>
 				<div id="footer">

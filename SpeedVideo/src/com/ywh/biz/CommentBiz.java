@@ -11,4 +11,6 @@ public interface CommentBiz {
 
 	void updateCommentlist(User user, Comment comment);
 
+	void rate(int score, int vid, User user);
+
 }

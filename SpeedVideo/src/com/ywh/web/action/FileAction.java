@@ -9,9 +9,14 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.ywh.biz.FileBiz;
+import com.ywh.biz.UserBiz;
 import com.ywh.entity.User;
 import com.ywh.entity.Video;
 
+/**
+ * 文件Action负责执行文件(视频，图片)上传功能
+ * @author YWH
+ */
 public class FileAction {
 	private File upvideo;
 	private String upvideoFileName;// 获取文件名，格式:空间的name属性值+必须以FIleName为后缀
@@ -19,6 +24,7 @@ public class FileAction {
 	private String filemessage;
 	private Video video;
 	private FileBiz fileBiz;
+	private UserBiz userBiz;
 	private User user;
 
 	public String upload() throws Exception {
@@ -41,13 +47,30 @@ public class FileAction {
 			video.setViews(0);
 			fileBiz.saveVideo(video);
 			filemessage = "上传成功";// 设置上传信息
-			//更新videolist表
-			fileBiz.addtoVideolist(user,video);
+			// 更新videolist表
+			fileBiz.addtoVideolist(user, video);
 			return "upload";
 		} catch (Exception e) {
 			e.printStackTrace();
 			filemessage = "上传出错,文件类型必须mp4，大小不要超过200m";// 上传出错
 			return "upload";
+		}
+	}
+
+	public String uploadImage() throws Exception {
+		try {
+			ServletContext sc = ServletActionContext.getServletContext();
+			String path = sc.getRealPath("/images");
+			FileUtils.copyFile(upvideo, new File(path, upvideoFileName));
+			user = userBiz.findUserById(user.getId());
+			user.setPhoto(upvideoFileName);
+			userBiz.updatePhoto(user);
+			filemessage = "上传成功!";
+			return "uploadimage";
+		} catch (Exception e) {
+			e.printStackTrace();
+			filemessage = "上传出错!";
+			return "uploadimage";
 		}
 	}
 
@@ -102,5 +125,13 @@ public class FileAction {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
+	public UserBiz getUserBiz() {
+		return userBiz;
+	}
+
+	public void setUserBiz(UserBiz userBiz) {
+		this.userBiz = userBiz;
+	}
+
 }

@@ -16,11 +16,12 @@
 			</interceptor-stack>
 		</interceptors>
 		<action name="fileAction" class="fileAction">
-
 			<result name="upload">/desktop/upload.jsp
 			</result>
 			<interceptor-ref name="myStack"></interceptor-ref>
-
+		</action>
+		<action name="fileActionImg" class="fileAction">
+			<result name="uploadimage">/desktop/uploadImage.jsp</result>
 		</action>
 	</package>
 </struts>    

@@ -69,7 +69,11 @@ name varchar(100) not null,
 pid int(6)
 );
 
-
-
+drop table if exists t_rate;
+create table t_rate(
+uid int(6),
+vid int(6),
+score double(4,2) not null
+);
 
 

@@ -34,4 +34,8 @@ public interface VideoBiz {
 
 	List<Comment> getComments(Video video);
 
+	Object getScore(int id, int id2);
+
+	Object getTotalScore(int id);
+
 }

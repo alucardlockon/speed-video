@@ -23,11 +23,19 @@ public class UserBizImpl implements UserBiz {
 
 	public void updateLastLogin(User validUser) {
 		validUser.setLast_login(new Date(System.currentTimeMillis()));
-		userDao.updateLastLogin(validUser);
+		userDao.updateUser(validUser);
 	}
 
 	public User findUserById(int id) {
 		return userDao.findUserById(id);
+	}
+
+	public void updatePhoto(User user) {
+		userDao.updateUser(user);
+	}
+
+	public void update(User user) {
+		userDao.updateUser(user);
 	}
 
 }

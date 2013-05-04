@@ -70,5 +70,13 @@ public class VideoBizImpl implements VideoBiz {
 		return videoDao.findByCommentsByVid(video.getId());
 	}
 
+	public Object getScore(int vid, int uid) {
+		return videoDao.findScore(vid,uid);
+	}
+
+	public Object getTotalScore(int vid) {
+		return videoDao.findTotalScore(vid);
+	}
+
 
 }

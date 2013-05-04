@@ -5,7 +5,7 @@
 	<package name="ssh-user" extends="ssh-default" namespace="/">
 		<action name="userAction" class="userAction">
 			<result name="login">/desktop/login.jsp</result>
-			<result name="regist">/desktop/regist.jsp</result>
+			<result name="regist">/desktop/registSuc.jsp</result>
 			<result name="userinfo">/desktop/userInfo.jsp</result>
 		</action>
 	</package>

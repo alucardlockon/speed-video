@@ -19,6 +19,14 @@ public class CommentBizImpl implements CommentBiz {
 	}
 
 	public void updateCommentlist(User user, Comment comment) {
-		commentDao.savetolist(user.getId(),comment.getId());
+		commentDao.savetolist(user.getId(), comment.getId());
+	}
+
+	public void rate(int score, int vid, User user) {
+		if (commentDao.findRate(vid, user.getId()) != null) {
+			commentDao.updateRate(score, vid, user.getId());
+		} else {
+			commentDao.insertRate(score, vid, user.getId());
+		}
 	}
 }

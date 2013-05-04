@@ -9,21 +9,35 @@ import com.ywh.entity.User;
 import com.ywh.entity.Video;
 import com.ywh.util.CookieUtil;
 
+/**
+ * 用户Action，负责注册登录，显示用户信息
+ * 
+ * @author YWH
+ */
 public class UserAction extends BaseAction {
 	UserBiz userBiz;
 	VideoBiz videoBiz;
 	List<Video> videolist;
 	User user;
+	String intro;
 
+	/**
+	 * 快速注册，其中name,email等自动设定
+	 */
 	public String quickRegist() {
 		user.setName("didNotSetName");
 		user.setEmail("didNotSetEmail");
 		user.setRegist_date(new Date(System.currentTimeMillis()));
 		user.setRights(1);
+		user.setPhoto("title.png");
+		user.setGender("保密");
 		userBiz.regist(user);
 		return "regist";
 	}
 
+	/**
+	 * 快速登录
+	 */
 	public String quickLogin() {
 		User validUser = userBiz.findUserByName(user.getUsername());
 		if (validUser != null) {
@@ -40,12 +54,15 @@ public class UserAction extends BaseAction {
 		return "error";
 	}
 
+	/**
+	 * 退出登录
+	 */
 	public String exitlogin() {
 		session.remove("user");
 		return "login";
 	}
 
-	/*
+	/**
 	 * 展示用户信息
 	 */
 	public String userinfo() {
@@ -55,15 +72,25 @@ public class UserAction extends BaseAction {
 		return "userinfo";
 	}
 
-	// TODO:完整注册登录
-	public String regist() {
-
-		return "regist";
+	/**
+	 * 修改用户信息
+	 */
+	public String editintro() {
+		user = userBiz.findUserById(user.getId());
+		user.setIntro(intro);
+		userBiz.update(user);
+		return "userinfo";
 	}
 
-	public String login() {
-
-		return "login";
+	/**
+	 * 完整注册
+	 */
+	public String regist() {
+		user.setRegist_date(new Date(System.currentTimeMillis()));
+		user.setRights(1);
+		user.setPhoto("title.png");
+		userBiz.regist(user);
+		return "regist";
 	}
 
 	public void setUserBiz(UserBiz userBiz) {
@@ -88,6 +115,14 @@ public class UserAction extends BaseAction {
 
 	public void setVideoBiz(VideoBiz videoBiz) {
 		this.videoBiz = videoBiz;
+	}
+
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro(String intro) {
+		this.intro = intro;
 	}
 
 }

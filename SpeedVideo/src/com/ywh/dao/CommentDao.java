@@ -10,4 +10,9 @@ public interface CommentDao {
 
 	void savetolist(int uid, int cid);
 
+	void updateRate(int score, int vid, int id);
+	
+	void insertRate(int score, int vid, int uid);
+
+	Object findRate(int vid, int id);
 }

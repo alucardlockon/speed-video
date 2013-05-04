@@ -12,4 +12,8 @@ public interface UserBiz {
 
 	User findUserById(int id);
 
+	void updatePhoto(User user);
+
+	void update(User user);
+
 }

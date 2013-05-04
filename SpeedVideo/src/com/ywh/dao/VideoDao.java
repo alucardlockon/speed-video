@@ -34,4 +34,8 @@ public interface VideoDao {
 
 	List<Comment> findByCommentsByVid(int id);
 
+	Object findScore(int vid, int uid);
+
+	Object findTotalScore(int vid);
+
 }

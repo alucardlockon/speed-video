@@ -15,6 +15,35 @@ $(function() {
 		$('#row').val(s + 1);
 	})
 })
+$(function() {
+	$('.rateimg').click(function() {
+		var s = this;
+		imgnum = s.id.substring(s.id.indexOf('_') + 1);
+		for (i = 1; i <= imgnum; i++) {
+			document.getElementById('rateimg_' + i).src = 'images/star1.png';
+		}
+		for (i = 10; i > imgnum; i--) {
+			document.getElementById('rateimg_' + i).src = 'images/star2.png';
+		}
+		//location='commentAction!rate?vid='+${video.id}+'&score='+imgnum;
+			htmlobj = $.ajax( {
+				url : 'commentAction!rate?vid='+${video.id}+'&score='+imgnum,
+				async : false
+			});
+		})
+})
+$(function() {
+	$('.rateimg').ready(function() {
+		var s = this;
+		var sco=${score}*1;
+		for (i = 1; i <= sco; i++) {
+			document.getElementById('rateimg_' + i).src = 'images/star1.png';
+		}
+		for (i = 10; i > sco; i--) {
+			document.getElementById('rateimg_' + i).src = 'images/star2.png';
+		}
+		})
+})
 </script>
 
 	</head>
@@ -31,7 +60,7 @@ $(function() {
 					</s:action>
 				</div>
 				<div id="content">
-					<span id="videotitle">${video.title}</span>
+					<span id="title">${video.title}</span>
 					<div class="video_content">
 						<video
 							src="${pageContext.request.contextPath}/videos/${video.url}"
@@ -44,10 +73,29 @@ $(function() {
 						<a href="http://firefox.com.cn/download/">FireFox</a>浏览器获得更好的体验。
 						</video>
 					</div>
-					<input type="button" value="喜欢"
-						onclick="location='videoAction!addtoFav?video.id=${video.id}'" />
+					<c:if test="${!empty sessionScope.user}" var="rs">
+					<a href='videoAction!addtoFav?video.id=${video.id}'><img
+							src='images/like.png' style="height: 38; width: 90" /> </a>
+					</c:if>
 					<br />
-					影片简介:
+					<span id="videoscore">${totalscore}</span>&nbsp;分
+					<br />
+					<c:if test="${rs}">
+					<div id='rate_div'>
+						<img src="images/star2.png" class="rateimg" id="rateimg_1" />
+						<img src="images/star2.png" class="rateimg" id="rateimg_2" />
+						<img src="images/star2.png" class="rateimg" id="rateimg_3" />
+						<img src="images/star2.png" class="rateimg" id="rateimg_4" />
+						<img src="images/star2.png" class="rateimg" id="rateimg_5" />
+						<img src="images/star2.png" class="rateimg" id="rateimg_6" />
+						<img src="images/star2.png" class="rateimg" id="rateimg_7" />
+						<img src="images/star2.png" class="rateimg" id="rateimg_8" />
+						<img src="images/star2.png" class="rateimg" id="rateimg_9" />
+						<img src="images/star2.png" class="rateimg" id="rateimg_10" />
+					</div>
+					</c:if>
+					<br />
+					影片简介:${score}
 					<br />
 					&nbsp;&nbsp;&nbsp;&nbsp;${video.intro}
 					<br />
@@ -76,8 +124,7 @@ $(function() {
 									<tr>
 										<td>
 											<small><i> 发表于: <s:date name="postdate"
-														format="yyyy-MM-dd hh:mm:ss" /> </i>
-											</small>
+														format="yyyy-MM-dd hh:mm:ss" /> </i> </small>
 										</td>
 									</tr>
 								</tbody>
@@ -87,7 +134,7 @@ $(function() {
 						</s:iterator>
 					</blockquote>
 					<div id="comment_form">
-						<c:if test="${!empty sessionScope.user}" var="rs">
+						<c:if test="${rs}">
 							<form action="commentAction">
 								<textarea rows="5" id="content" name="comment.content"
 									style="width: 40%"></textarea>

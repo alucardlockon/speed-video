@@ -6,6 +6,7 @@
 	<package name="ssh-comment" extends="ssh-default" namespace="/">
 		<action name="commentAction" class="commentAction">
 			<result name="success">/desktop/player.jsp</result>
+			<result name="rate">/desktop/player.jsp</result>
 		</action>
 	</package>
 </struts>    

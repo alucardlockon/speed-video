@@ -8,10 +8,19 @@ import com.ywh.entity.Comment;
 import com.ywh.entity.User;
 import com.ywh.util.CookieUtil;
 
+/**
+ * 评论Action，负责评论部分
+ * @author YWH
+ */
 public class CommentAction extends BaseAction {
 	CommentBiz commentBiz;
 	Comment comment;
-
+	int score;
+	int vid;
+	
+	/**
+	 * 进行评论
+	 */
 	public String execute() {
 		comment.setPostdate(new Date(System.currentTimeMillis()));
 		// comment.setRow(1);
@@ -19,6 +28,14 @@ public class CommentAction extends BaseAction {
 		comment.setUid(user.getId());
 		commentBiz.comment(comment);
 		return SUCCESS;
+	}
+	/**
+	 * 打分
+	 */
+	public String rate(){
+		User user = (User) session.get("user");
+		commentBiz.rate(score,vid,user);
+		return "rate";
 	}
 
 	public void setCommentBiz(CommentBiz commentBiz) {
@@ -33,4 +50,18 @@ public class CommentAction extends BaseAction {
 		this.comment = comment;
 	}
 
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+	public int getVid() {
+		return vid;
+	}
+	public void setVid(int vid) {
+		this.vid = vid;
+	}
+	
 }
