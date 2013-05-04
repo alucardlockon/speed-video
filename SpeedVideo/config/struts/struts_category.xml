@@ -8,5 +8,9 @@
 			<result name="getCategory">/commons/left_bar.jsp</result>
 			<result name="selector">/commons/category_selector.jsp</result>
 		</action>
+		<action name="m_categoryAction" class="categoryAction">
+			<result name="getCategory">/mobile/commons/left_bar.jsp</result>
+			<result name="selector">/mobile/commons/category_selector.jsp</result>
+		</action>
 	</package>
 </struts>    

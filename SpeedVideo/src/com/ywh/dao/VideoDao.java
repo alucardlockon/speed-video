@@ -8,11 +8,11 @@ import com.ywh.entity.Video;
 
 public interface VideoDao {
 
-	List<Video> findIndexNew();
+	List<Video> findIndexNew(int page,int pageSize);
 
-	List<Video> findIndexMostComment();
+	List<Video> findIndexMostComment(int page,int pageSize);
 
-	List<Video> findIndexViews();
+	List<Video> findIndexViews(int page,int pageSize);
 
 	Video findVideoById(int id);
 
@@ -22,13 +22,13 @@ public interface VideoDao {
 
 	List<Video> findVideoByText(String serachText);
 
-	List<Integer> findIdByFavorite(int id);
+	List<Integer> findIdByFavorite(int id,int page,int pageSize);
 
 	void savetoFavByVid(Video video,User user);
 
 	Object findFavByVid(int uid,int vid);
 
-	List<Integer> findIdByVideolist(int id);
+	List<Integer> findIdByVideolist(int id,int page,int pageSize);
 
 	List<Video> showBylist(List<Integer> idlist);
 

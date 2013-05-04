@@ -5,9 +5,13 @@
       <result name="getCategory">
         <resourceEdge source="getCategory" routing="0" target="left_bar.jsp" />
       </result>
+      <result name="selector">
+        <resourceEdge source="selector" routing="0" target="category_selector.jsp" />
+      </result>
     </action>
   </package>
   <webResource name="upload.jsp" path="${pageContext.request.contextPath}/desktop/upload.jsp" location="9,205" size="150,55" />
   <webResource name="left_bar.jsp" path="/commons/left_bar.jsp" location="0,0" size="0,0" />
+  <webResource name="category_selector.jsp" path="/commons/category_selector.jsp" location="0,0" size="0,0" />
 </Struts2Diagram>
 

@@ -6,7 +6,18 @@
         <resourceEdge source="login" routing="0" target="login.jsp" />
       </result>
       <result name="regist">
-        <resourceEdge source="regist" routing="0" target="regist.jsp" />
+        <resourceEdge source="regist" routing="0" target="registSuc.jsp" />
+      </result>
+      <result name="userinfo">
+        <resourceEdge source="userinfo" routing="0" target="userInfo.jsp" />
+      </result>
+    </action>
+    <action name="m_userAction" location="0,0" size="0,0">
+      <result name="login">
+        <resourceEdge source="login" routing="0" target="login.jsp" />
+      </result>
+      <result name="regist">
+        <resourceEdge source="regist" routing="0" target="registSuc.jsp" />
       </result>
       <result name="userinfo">
         <resourceEdge source="userinfo" routing="0" target="userInfo.jsp" />
@@ -18,5 +29,9 @@
   <webResource name="login.jsp" path="/desktop/login.jsp" location="0,0" size="0,0" />
   <webResource name="regist.jsp" path="/desktop/regist.jsp" location="0,0" size="0,0" />
   <webResource name="userInfo.jsp" path="/desktop/userInfo.jsp" location="0,0" size="0,0" />
+  <webResource name="registSuc.jsp" path="/desktop/registSuc.jsp" location="0,0" size="0,0" />
+  <webResource name="login.jsp" path="/mobile/page/login.jsp" location="0,0" size="0,0" />
+  <webResource name="registSuc.jsp" path="/mobile/page/registSuc.jsp" location="0,0" size="0,0" />
+  <webResource name="userInfo.jsp" path="/mobile/page/userInfo.jsp" location="0,0" size="0,0" />
 </Struts2Diagram>
 

@@ -29,7 +29,7 @@
 							<table>
 								<tr>
 									<td colspan="2">
-										<img src="images/${sessionScope.user.photo}" alt="" width="180"
+										<img src="${pageContext.request.contextPath}/images/${sessionScope.user.photo}" alt="" width="180"
 											height="120" />
 									</td>
 								</tr>

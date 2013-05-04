@@ -59,7 +59,7 @@ public class UserAction extends BaseAction {
 	 */
 	public String exitlogin() {
 		session.remove("user");
-		return "login";
+		return "exit";
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class UserAction extends BaseAction {
 	 */
 	public String userinfo() {
 		user = userBiz.findUserById(user.getId());
-		List<Integer> ids = videoBiz.findIdByVideolist(user);
+		List<Integer> ids = videoBiz.findIdByVideolist(user,1,3);
 		videolist = videoBiz.showBylist(ids);
 		return "userinfo";
 	}

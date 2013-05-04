@@ -7,6 +7,17 @@
 			<result name="login">/desktop/login.jsp</result>
 			<result name="regist">/desktop/registSuc.jsp</result>
 			<result name="userinfo">/desktop/userInfo.jsp</result>
+			<result name="exit" type="chain">
+			<param name="actionName">mainAction</param>
+			</result>
+		</action>
+		<action name="m_userAction" class="userAction">
+			<result name="login">/mobile/page/login.jsp</result>
+			<result name="regist">/mobile/page/registSuc.jsp</result>
+			<result name="userinfo">/mobile/page/userInfo.jsp</result>
+			<result name="exit" type="chain">
+			<param name="actionName">mainAction!tomobile</param>
+			</result>
 		</action>
 	</package>
 </struts>    

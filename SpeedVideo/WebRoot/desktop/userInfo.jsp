@@ -96,7 +96,6 @@
 							</td>
 						</tr>
 					</table>
-					<span id='followuser'><a href="#">follow该用户</a></span>
 					<div class="userUp">
 						<a href="" class="title_text">用户视频</a>
 						<br />

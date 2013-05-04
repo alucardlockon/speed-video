@@ -8,12 +8,23 @@
 	height: 80%;
 }
 
+#content {
+	height: 80%;
+	float: left;
+}
+
 #left-list {
 	height: 100%;
 	width: 15%;
 	float: left;
 	text-align: left;
 	width: 15%;
+}
+
+#right-list {
+	margin-left: 5%;
+	float: left;
+	clear: right;
 }
 
 .style-of-ul {
@@ -93,3 +104,8 @@ a:active {
 	font-family: "SimHei";
 	font-size: 25;
 }
+
+textarea{
+	height: 70%;
+	width: 70%;
+	}

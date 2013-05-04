@@ -5,6 +5,9 @@
       <result name="success">
         <resourceEdge source="success" routing="0" target="player.jsp" />
       </result>
+      <result name="rate">
+        <resourceEdge source="rate" routing="0" target="player.jsp" />
+      </result>
     </action>
   </package>
   <webResource name="left_bar.jsp" path="/commons/left_bar.jsp" location="73,205" size="150,55" />

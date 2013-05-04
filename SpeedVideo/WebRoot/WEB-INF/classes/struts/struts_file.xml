@@ -23,5 +23,13 @@
 		<action name="fileActionImg" class="fileAction">
 			<result name="uploadimage">/desktop/uploadImage.jsp</result>
 		</action>
+		<action name="m_fileAction" class="fileAction">
+			<result name="upload">/mobile/page/upload.jsp
+			</result>
+			<interceptor-ref name="myStack"></interceptor-ref>
+		</action>
+		<action name="m_fileActionImg" class="fileAction">
+			<result name="uploadimage">/mobile/page/uploadImage.jsp</result>
+		</action>
 	</package>
 </struts>    

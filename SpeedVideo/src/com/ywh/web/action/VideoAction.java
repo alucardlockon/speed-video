@@ -28,14 +28,16 @@ public class VideoAction extends BaseAction {
 	private String serach_text;// 搜索关键字
 	private String score;// 评分
 	private String totalscore;// 总评分
+	private int page;// 页数
+	private int pageSize;// 每夜数
 
 	/**
 	 * 显示首页视频列表
 	 */
 	public String showVideo() {
-		videolist = videoBiz.getIndexNew();
-		videolist2 = videoBiz.getIndexViews();
-		videolist3 = videoBiz.getIndexMostComment();
+		videolist = videoBiz.getIndexNew(page,pageSize);
+		videolist2 = videoBiz.getIndexViews(page,pageSize);
+		videolist3 = videoBiz.getIndexMostComment(page,pageSize);
 		return "showVideo";
 	}
 
@@ -81,9 +83,9 @@ public class VideoAction extends BaseAction {
 	 */
 	public String favlist() {
 		User user = (User) session.get("user");
-		List<Integer> idlist = videoBiz.findIdByFavorite(user);
-		List<Integer> idlist2 = videoBiz.findIdByVideolist(user);
-		List<Integer> idlist3 = videoBiz.findIdByFavorite(user);
+		List<Integer> idlist = videoBiz.findIdByFavorite(user,page,pageSize);
+		List<Integer> idlist2 = videoBiz.findIdByVideolist(user,page,pageSize);
+		List<Integer> idlist3 = videoBiz.findIdByFavorite(user,page,pageSize);
 		videolist = videoBiz.showBylist(idlist);
 		videolist2 = videoBiz.showBylist(idlist2);
 		videolist3 = videoBiz.showBylist(idlist2);
@@ -200,6 +202,22 @@ public class VideoAction extends BaseAction {
 
 	public void setTotalscore(String totalscore) {
 		this.totalscore = totalscore;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
 
 }

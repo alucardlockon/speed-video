@@ -10,7 +10,7 @@
 </script>
 		<script type="text/javascript">
 $(function() {
-	$('#content').click(function() {
+	$('#commentContent').click(function() {
 		var s = $('.comments').length;
 		$('#row').val(s + 1);
 	})
@@ -74,28 +74,28 @@ $(function() {
 						</video>
 					</div>
 					<c:if test="${!empty sessionScope.user}" var="rs">
-					<a href='videoAction!addtoFav?video.id=${video.id}'><img
-							src='images/like.png' style="height: 38; width: 90" /> </a>
+						<a href='videoAction!addtoFav?video.id=${video.id}'><img
+								src='images/like.png' style="height: 38; width: 90" /> </a>
 					</c:if>
 					<br />
 					<span id="videoscore">${totalscore}</span>&nbsp;分
 					<br />
 					<c:if test="${rs}">
-					<div id='rate_div'>
-						<img src="images/star2.png" class="rateimg" id="rateimg_1" />
-						<img src="images/star2.png" class="rateimg" id="rateimg_2" />
-						<img src="images/star2.png" class="rateimg" id="rateimg_3" />
-						<img src="images/star2.png" class="rateimg" id="rateimg_4" />
-						<img src="images/star2.png" class="rateimg" id="rateimg_5" />
-						<img src="images/star2.png" class="rateimg" id="rateimg_6" />
-						<img src="images/star2.png" class="rateimg" id="rateimg_7" />
-						<img src="images/star2.png" class="rateimg" id="rateimg_8" />
-						<img src="images/star2.png" class="rateimg" id="rateimg_9" />
-						<img src="images/star2.png" class="rateimg" id="rateimg_10" />
-					</div>
+						<div id='rate_div'>
+							<img src="images/star2.png" class="rateimg" id="rateimg_1" />
+							<img src="images/star2.png" class="rateimg" id="rateimg_2" />
+							<img src="images/star2.png" class="rateimg" id="rateimg_3" />
+							<img src="images/star2.png" class="rateimg" id="rateimg_4" />
+							<img src="images/star2.png" class="rateimg" id="rateimg_5" />
+							<img src="images/star2.png" class="rateimg" id="rateimg_6" />
+							<img src="images/star2.png" class="rateimg" id="rateimg_7" />
+							<img src="images/star2.png" class="rateimg" id="rateimg_8" />
+							<img src="images/star2.png" class="rateimg" id="rateimg_9" />
+							<img src="images/star2.png" class="rateimg" id="rateimg_10" />
+						</div>
 					</c:if>
 					<br />
-					影片简介:${score}
+					影片简介:
 					<br />
 					&nbsp;&nbsp;&nbsp;&nbsp;${video.intro}
 					<br />
@@ -103,6 +103,8 @@ $(function() {
 					<br />
 					<span id="views">观看数:${video.views}</span>
 					<br />
+				</div>
+				<div id="right-list">
 					评论:
 					<blockquote style="">
 						<s:iterator value="comments">
@@ -136,8 +138,8 @@ $(function() {
 					<div id="comment_form">
 						<c:if test="${rs}">
 							<form action="commentAction">
-								<textarea rows="5" id="content" name="comment.content"
-									style="width: 40%"></textarea>
+								<textarea rows="5" id="commentContent" name="comment.content"
+									></textarea>
 								<br />
 								<input type="submit" value="我要评论" />
 								<input type="hidden" id="row" name="comment.row" value="1">
@@ -146,7 +148,6 @@ $(function() {
 						</c:if>
 					</div>
 				</div>
-				<div id="right-list"></div>
 			</div>
 			<div id="footer">
 				<jsp:include page="../commons/footer.jsp"></jsp:include>

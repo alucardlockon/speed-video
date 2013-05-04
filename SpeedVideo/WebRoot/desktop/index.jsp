@@ -7,7 +7,7 @@
 		<%@include file="../commons/header.jsp"%>
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/js/userAgent.js">
-			
+
 </script>
 
 	</head>
@@ -26,6 +26,8 @@
 				<div id="content">
 					<s:action name="videoAction!showVideo" executeResult="true"
 						namespace="/">
+						<s:param name="page">1</s:param>
+						<s:param name="pageSize">4</s:param>
 					</s:action>
 					<div id="right-list"></div>
 				</div>

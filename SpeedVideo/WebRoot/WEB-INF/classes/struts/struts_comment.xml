@@ -8,5 +8,9 @@
 			<result name="success">/desktop/player.jsp</result>
 			<result name="rate">/desktop/player.jsp</result>
 		</action>
+		<action name="m_commentAction" class="commentAction">
+			<result name="success">/mobile/page/player.jsp</result>
+			<result name="rate">/mobile/page/player.jsp</result>
+		</action>
 	</package>
 </struts>    

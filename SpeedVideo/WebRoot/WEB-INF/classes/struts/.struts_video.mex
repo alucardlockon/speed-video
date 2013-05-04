@@ -12,7 +12,10 @@
         <resourceEdge source="showByCategory" routing="0" target="categoryVideo.jsp" />
       </result>
       <result name="favlist">
-        <resourceEdge source="favlist" routing="0" target="index.jsp" />
+        <resourceEdge source="favlist" routing="0" target="favorite.jsp" />
+      </result>
+      <result name="addtoFav">
+        <resourceEdge source="addtoFav" routing="0" target="player.jsp" />
       </result>
     </action>
   </package>
@@ -22,5 +25,6 @@
   <webResource name="categoryVideo.jsp" path="/desktop/categoryVideo.jsp" location="0,0" size="0,0" />
   <webResource name="category_content.jsp" path="/desktop/category_content.jsp" location="0,0" size="0,0" />
   <webResource name="index.jsp" path="/desktop/index.jsp" location="0,0" size="0,0" />
+  <webResource name="favorite.jsp" path="/desktop/favorite.jsp" location="0,0" size="0,0" />
 </Struts2Diagram>
 

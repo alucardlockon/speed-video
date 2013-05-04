@@ -24,7 +24,7 @@
 		</global-results>
 		<action name="mainAction" class="mainAction">
 			<result name="index">/desktop/index.jsp</result>
-			<result name="mobileindex">/mobile/index.jsp</result>
+			<result name="mobileindex">/mobile/page/index.jsp</result>
 		</action>
 	</package>
 	<!-- 引入其他struts2配置文件 -->

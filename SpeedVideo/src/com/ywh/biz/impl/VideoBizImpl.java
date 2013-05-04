@@ -15,16 +15,16 @@ public class VideoBizImpl implements VideoBiz {
 		this.videoDao = videoDao;
 	}
 
-	public List<Video> getIndexMostComment() {
-		return videoDao.findIndexMostComment();
+	public List<Video> getIndexMostComment(int page,int pageSize) {
+		return videoDao.findIndexMostComment(page,pageSize);
 	}
 
-	public List<Video> getIndexNew() {
-		return videoDao.findIndexNew();
+	public List<Video> getIndexNew(int page,int pageSize) {
+		return videoDao.findIndexNew(page,pageSize);
 	}
 
-	public List<Video> getIndexViews() {
-		return videoDao.findIndexViews();
+	public List<Video> getIndexViews(int page,int pageSize) {
+		return videoDao.findIndexViews(page,pageSize);
 	}
 
 	public Video getVideoPlay(int id) {
@@ -44,8 +44,8 @@ public class VideoBizImpl implements VideoBiz {
 		return videoDao.findVideoByText(serachText);
 	}
 
-	public List<Integer> findIdByFavorite(User user) {
-		return videoDao.findIdByFavorite(user.getId());
+	public List<Integer> findIdByFavorite(User user,int page,int pageSize) {
+		return videoDao.findIdByFavorite(user.getId(),page,pageSize);
 	}
 
 	public void addtoFav(int id,User user) {
@@ -57,8 +57,8 @@ public class VideoBizImpl implements VideoBiz {
 		return videoDao.findFavByVid(uid,vid);
 	}
 
-	public List<Integer> findIdByVideolist(User user) {
-		return videoDao.findIdByVideolist(user.getId());
+	public List<Integer> findIdByVideolist(User user,int page,int pageSize) {
+		return videoDao.findIdByVideolist(user.getId(),page,pageSize);
 	}
 
 
