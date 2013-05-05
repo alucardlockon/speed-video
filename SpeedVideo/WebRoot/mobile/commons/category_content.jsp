@@ -11,7 +11,7 @@
 						<a
 							href="${pageContext.request.contextPath}/m_videoAction!play?video.id=${id}"><img
 								alt="${title}"
-								src="${pageContext.request.contextPath}/mobile/images/${image}"
+								src="${pageContext.request.contextPath}/images/${image}"
 								height="120" width="200"> </a>
 					</td>
 					<td>

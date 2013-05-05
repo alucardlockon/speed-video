@@ -28,16 +28,20 @@ public class VideoAction extends BaseAction {
 	private String serach_text;// 搜索关键字
 	private String score;// 评分
 	private String totalscore;// 总评分
-	private int page;// 页数
-	private int pageSize;// 每夜数
+	private int page = 1;// 页数
+	private int pageSize = 4;// 每页数
+	private int p1 = 1;// p1页数
+	private int p2 = 1;// p2页数
+	private int p3 = 1;// p3页数
+	private int maxPage;
 
 	/**
 	 * 显示首页视频列表
 	 */
 	public String showVideo() {
-		videolist = videoBiz.getIndexNew(page,pageSize);
-		videolist2 = videoBiz.getIndexViews(page,pageSize);
-		videolist3 = videoBiz.getIndexMostComment(page,pageSize);
+		videolist = videoBiz.getIndexNew(p1, pageSize);
+		videolist2 = videoBiz.getIndexViews(p2, pageSize);
+		videolist3 = videoBiz.getIndexMostComment(p3, pageSize);
 		return "showVideo";
 	}
 
@@ -45,6 +49,7 @@ public class VideoAction extends BaseAction {
 	 * 播放页面
 	 */
 	public String play() {
+		// 设置分数
 		User user = (User) session.get("user");
 		DecimalFormat dcm = new DecimalFormat("0.00");
 		if (user != null
@@ -62,12 +67,18 @@ public class VideoAction extends BaseAction {
 		}
 		video = videoBiz.getVideoPlay(video.getId());
 		videoBiz.updateViews(video);
-		comments = videoBiz.getComments(video);
+		comments = videoBiz.getComments(video, page, pageSize);
+		for (Comment comment : comments) {
+			comment.setUser(videoBiz.findCmUser(comment.getUid()));
+		}
+		maxPage = (videoBiz.findCommentCount() % pageSize == 0 ? videoBiz
+				.findCommentCount()
+				/ pageSize : videoBiz.findCommentCount() / pageSize+1);
 		return "play";
 	}
 
 	/**
-	 * 根据左边栏的目录显示视频列表 TODO:等待排版完善前用listview表示
+	 * 根据左边栏的目录显示视频列表
 	 */
 	public String showByCategory() {
 		// 显示目录信息
@@ -83,9 +94,10 @@ public class VideoAction extends BaseAction {
 	 */
 	public String favlist() {
 		User user = (User) session.get("user");
-		List<Integer> idlist = videoBiz.findIdByFavorite(user,page,pageSize);
-		List<Integer> idlist2 = videoBiz.findIdByVideolist(user,page,pageSize);
-		List<Integer> idlist3 = videoBiz.findIdByFavorite(user,page,pageSize);
+		List<Integer> idlist = videoBiz.findIdByFavorite(user, p1, pageSize);
+		List<Integer> idlist2 = videoBiz
+				.findIdByVideolist(user, p2, pageSize);
+		List<Integer> idlist3 = videoBiz.findIdByFavorite(user, p3, pageSize);
 		videolist = videoBiz.showBylist(idlist);
 		videolist2 = videoBiz.showBylist(idlist2);
 		videolist3 = videoBiz.showBylist(idlist2);
@@ -218,6 +230,38 @@ public class VideoAction extends BaseAction {
 
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public int getMaxPage() {
+		return maxPage;
+	}
+
+	public void setMaxPage(int maxPage) {
+		this.maxPage = maxPage;
+	}
+
+	public int getP1() {
+		return p1;
+	}
+
+	public void setP1(int p1) {
+		this.p1 = p1;
+	}
+
+	public int getP2() {
+		return p2;
+	}
+
+	public void setP2(int p2) {
+		this.p2 = p2;
+	}
+
+	public int getP3() {
+		return p3;
+	}
+
+	public void setP3(int p3) {
+		this.p3 = p3;
 	}
 
 }

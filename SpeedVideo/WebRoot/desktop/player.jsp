@@ -8,13 +8,27 @@
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/js/userAgent.js">
 </script>
-		<script type="text/javascript">
+		<c:if test="${!empty sessionScope.user}" var="rs">
+			<script type="text/javascript">
 $(function() {
 	$('#commentContent').click(function() {
 		var s = $('.comments').length;
 		$('#row').val(s + 1);
 	})
 })
+$(function() {
+	$('#commentbtn').click(
+			function() {
+				htmlobj = $.ajax( {
+					url : 'commentAction?comment.content='
+							+ $('#commentContent').val() + '&comment.row='
+							+ $('#row').val() + '&comment.vid='
+							+ $('#commentvid').val(),
+					async : true
+				});
+				$('#commentContent').val('')
+			});
+});
 $(function() {
 	$('.rateimg').click(function() {
 		var s = this;
@@ -28,7 +42,7 @@ $(function() {
 		//location='commentAction!rate?vid='+${video.id}+'&score='+imgnum;
 			htmlobj = $.ajax( {
 				url : 'commentAction!rate?vid='+${video.id}+'&score='+imgnum,
-				async : false
+				async : true
 			});
 		})
 })
@@ -45,7 +59,7 @@ $(function() {
 		})
 })
 </script>
-
+		</c:if>
 	</head>
 
 	<body>
@@ -103,6 +117,19 @@ $(function() {
 					<br />
 					<span id="views">观看数:${video.views}</span>
 					<br />
+					<div id="comment_form">
+						<c:if test="${rs}">
+							<form action="commentAction" id="commentForm">
+								<textarea rows="5" id="commentContent" name="comment.content"
+									style="height: 20%"></textarea>
+								<br />
+								<input type="button" id="commentbtn" value="我要评论" />
+								<input type="hidden" id="row" name="comment.row" value="1">
+								<input type="hidden" id="commentvid" name="comment.vid"
+									value="${video.id}">
+							</form>
+						</c:if>
+					</div>
 				</div>
 				<div id="right-list">
 					评论:
@@ -111,10 +138,18 @@ $(function() {
 							<table class="comments">
 								<thead>
 									<tr>
-										<th>
-											${row}楼 &nbsp;用户:
-											<a href="userAction!userinfo?user.id=${uid}">${uid}</a>&nbsp;评论id:${id}
-										</th>
+										<td>
+											${row}楼
+											<a href="userAction!userinfo?user.id=${uid}"><img
+													src="images/${user.photo}" alt="" width="60" height="40" />
+											</a>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											&nbsp;用户:
+											<a href="userAction!userinfo?user.id=${uid}">${user.username}</a>
+										</td>
 									</tr>
 								</thead>
 								<tbody>
@@ -134,19 +169,16 @@ $(function() {
 								</tfoot>
 							</table>
 						</s:iterator>
-					</blockquote>
-					<div id="comment_form">
-						<c:if test="${rs}">
-							<form action="commentAction">
-								<textarea rows="5" id="commentContent" name="comment.content"
-									></textarea>
-								<br />
-								<input type="submit" value="我要评论" />
-								<input type="hidden" id="row" name="comment.row" value="1">
-								<input type="hidden" name="comment.vid" value="${video.id}">
-							</form>
+						<c:if test="${page>1}">
+							<a
+								href="${pageContext.request.contextPath}/videoAction!play?video.id=${video.id}&page=${page-1}">&lt;&lt;上一页
+							</a> &nbsp;
+							</c:if>
+						<c:if test="${page<maxPage}">
+						<a
+								href="${pageContext.request.contextPath}/videoAction!play?video.id=${video.id}&page=${page+1}">下一页&gt;&gt;</a>
 						</c:if>
-					</div>
+					</blockquote>
 				</div>
 			</div>
 			<div id="footer">

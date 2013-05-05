@@ -66,8 +66,8 @@ public class VideoBizImpl implements VideoBiz {
 		return videoDao.showBylist(idlist);
 	}
 
-	public List<Comment> getComments(Video video) {
-		return videoDao.findByCommentsByVid(video.getId());
+	public List<Comment> getComments(Video video,int page,int pageSize) {
+		return videoDao.findByCommentsByVid(video.getId(),page,pageSize);
 	}
 
 	public Object getScore(int vid, int uid) {
@@ -77,6 +77,15 @@ public class VideoBizImpl implements VideoBiz {
 	public Object getTotalScore(int vid) {
 		return videoDao.findTotalScore(vid);
 	}
+
+	public User findCmUser(int uid) {
+		return videoDao.findCmUser(uid);
+	}
+
+	public int findCommentCount() {
+		return videoDao.findCommentCount();
+	}
+
 
 
 }

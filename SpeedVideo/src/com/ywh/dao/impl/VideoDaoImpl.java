@@ -20,7 +20,7 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 	public List<Video> findIndexNew(int page, int pageSize) {
 		String hql = "from Video order by upload_date desc";
 		Query query = getSession().createQuery(hql);
-		query.setFirstResult((page-1)*pageSize+1);
+		query.setFirstResult((page - 1) * pageSize );
 		query.setMaxResults(pageSize);
 		return query.list();
 	}
@@ -32,7 +32,7 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 		// TODO:查询待完成
 		String hql = "from Video order by upload_date desc";
 		Query query = getSession().createQuery(hql);
-		query.setFirstResult((page-1)*pageSize+1);
+		query.setFirstResult((page - 1) * pageSize );
 		query.setMaxResults(pageSize);
 		return query.list();
 	}
@@ -43,7 +43,7 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 	public List<Video> findIndexViews(int page, int pageSize) {
 		String hql = "from Video order by views desc";
 		Query query = getSession().createQuery(hql);
-		query.setFirstResult((page-1)*pageSize+1);
+		query.setFirstResult((page - 1) * pageSize);
 		query.setMaxResults(pageSize);
 		return query.list();
 	}
@@ -83,11 +83,11 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 	/**
 	 * 根据用户id查询视频id列表
 	 */
-	public List<Integer> findIdByFavorite(int id,int page,int pageSize) {
+	public List<Integer> findIdByFavorite(int id, int page, int pageSize) {
 		String sql = "select vid from t_favoritelist where uid=:uid";
 		Query query = getSession().createSQLQuery(sql);
 		query.setInteger("uid", id);
-		query.setFirstResult((page-1)*pageSize+1);
+		query.setFirstResult((page - 1) * pageSize);
 		query.setMaxResults(pageSize);
 		return query.list();
 	}
@@ -140,11 +140,11 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 	/**
 	 * 根据用户id查询视频id
 	 */
-	public List<Integer> findIdByVideolist(int id,int page,int pageSize) {
+	public List<Integer> findIdByVideolist(int id, int page, int pageSize) {
 		String sql = "select vid from t_videolist where uid=:uid";
 		Query query = getSession().createSQLQuery(sql);
 		query.setInteger("uid", id);
-		query.setFirstResult((page-1)*pageSize+1);
+		query.setFirstResult((page - 1) * pageSize);
 		query.setMaxResults(pageSize);
 		return query.list();
 	}
@@ -152,9 +152,13 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 	/**
 	 * 根据视频id查询评论
 	 */
-	public List<Comment> findByCommentsByVid(int id) {
-		String hql = "from Comment where vid=?";
-		return this.getHibernateTemplate().find(hql, id);
+	public List<Comment> findByCommentsByVid(int id, int page, int pageSize) {
+		String hql = "from Comment where vid=:vid order by row desc";
+		Query query = getSession().createQuery(hql);
+		query.setInteger("vid", id);
+		query.setFirstResult((page - 1) * pageSize);
+		query.setMaxResults(pageSize);
+		return query.list();
 	}
 
 	public Object findScore(int vid, int uid) {
@@ -170,6 +174,16 @@ public class VideoDaoImpl extends HibernateDaoSupport implements VideoDao {
 		Query query = getSession().createSQLQuery(sql);
 		query.setInteger("vid", vid);
 		return (Double) query.uniqueResult();
+	}
+
+	public User findCmUser(int uid) {
+		return (User) this.getHibernateTemplate().get(User.class, uid);
+	}
+
+	public int findCommentCount() {
+		String hql = "select count(*) from Comment";
+		Long l=(Long)this.getHibernateTemplate().find(hql).get(0);
+		return l.intValue();
 	}
 
 }

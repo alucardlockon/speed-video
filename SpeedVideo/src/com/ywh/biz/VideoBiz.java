@@ -32,10 +32,14 @@ public interface VideoBiz {
 
 	List<Video> showBylist(List<Integer> idlist2);
 
-	List<Comment> getComments(Video video);
+	List<Comment> getComments(Video video,int page,int pageSize);
 
 	Object getScore(int id, int id2);
 
 	Object getTotalScore(int id);
+
+	User findCmUser(int uid);
+
+	int findCommentCount();
 
 }

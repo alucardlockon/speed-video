@@ -9,6 +9,7 @@ public class Comment {
 	private int row;
 	private String content;
 	private Date postdate;
+	private User user;
 
 	public int getId() {
 		return id;
@@ -58,4 +59,12 @@ public class Comment {
 		this.uid = uid;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 }

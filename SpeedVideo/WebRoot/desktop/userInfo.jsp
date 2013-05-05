@@ -110,12 +110,6 @@
 												height="120" width="200"> </a>
 									</td>
 								</s:iterator>
-								<td>
-									<a href="${pageContext.request.contextPath}/desktop/player.jsp"><img
-											alt="影片名称"
-											src="${pageContext.request.contextPath}/images/next.jpg"
-											height="80" width="80"> </a>
-								</td>
 							</tr>
 							<tr>
 								<s:iterator value="videolist" var="video">
@@ -125,8 +119,6 @@
 											class="video_title">${title}</a>
 									</td>
 								</s:iterator>
-								<td>
-								</td>
 							</tr>
 						</table>
 					</div>

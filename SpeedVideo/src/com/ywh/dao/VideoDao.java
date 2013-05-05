@@ -32,10 +32,15 @@ public interface VideoDao {
 
 	List<Video> showBylist(List<Integer> idlist);
 
-	List<Comment> findByCommentsByVid(int id);
+	List<Comment> findByCommentsByVid(int id,int page,int pageSize);
 
 	Object findScore(int vid, int uid);
 
 	Object findTotalScore(int vid);
+
+	User findCmUser(int uid);
+
+	int findCommentCount();
+
 
 }

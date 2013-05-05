@@ -1,9 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <ul class="style-of-ul">
 	<li>
-		<a href="${pageContext.request.contextPath}">首页</a>
+		<a href="${pageContext.request.contextPath}?p1=1&p2=1&p3=1">首页</a>
 	</li>
 	<c:if test="${!empty sessionScope.user}" var="rs">
 		<li>

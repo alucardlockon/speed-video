@@ -38,10 +38,20 @@
 									</td>
 								</s:iterator>
 								<td>
-									<a href="${pageContext.request.contextPath}/desktop/player.jsp"><img
-											alt="影片名称"
-											src="${pageContext.request.contextPath}/images/next.jpg"
-											height="80" width="80"> </a>
+									<c:if test="${page>1}">
+										<a
+											href="${pageContext.request.contextPath}/videoAction!favlist?p1=${p1+1}"><img
+												alt="影片名称"
+												src="${pageContext.request.contextPath}/images/next.jpg"
+												height="80" width="80"> </a>
+									</c:if>
+									<c:if test="${page<maxPage}">
+										<a
+											href="${pageContext.request.contextPath}/videoAction!favlist?p1=${p1+1}"><img
+												alt="影片名称"
+												src="${pageContext.request.contextPath}/images/next.jpg"
+												height="80" width="80"> </a>
+									</c:if>
 								</td>
 							</tr>
 							<tr>
@@ -73,10 +83,20 @@
 									</td>
 								</s:iterator>
 								<td>
-									<a href="${pageContext.request.contextPath}/desktop/player.jsp"><img
-											alt="影片名称"
-											src="${pageContext.request.contextPath}/images/next.jpg"
-											height="80" width="80"> </a>
+									<c:if test="${page>1}">
+										<a
+											href="${pageContext.request.contextPath}/videoAction!favlist?p2=${p2+1}"><img
+												alt="影片名称"
+												src="${pageContext.request.contextPath}/images/next.jpg"
+												height="80" width="80"> </a>
+									</c:if>
+									<c:if test="${page<maxPage}">
+										<a
+											href="${pageContext.request.contextPath}/videoAction!favlist?p2=${p2+1}"><img
+												alt="影片名称"
+												src="${pageContext.request.contextPath}/images/next.jpg"
+												height="80" width="80"> </a>
+									</c:if>
 								</td>
 							</tr>
 							<tr>
@@ -108,10 +128,20 @@
 									</td>
 								</s:iterator>
 								<td>
-									<a href="${pageContext.request.contextPath}/desktop/player.jsp"><img
-											alt="影片名称"
-											src="${pageContext.request.contextPath}/images/next.jpg"
-											height="80" width="80"> </a>
+									<c:if test="${page>1}">
+										<a
+											href="${pageContext.request.contextPath}/videoAction!favlist?p3=${p3+1}"><img
+												alt="影片名称"
+												src="${pageContext.request.contextPath}/images/next.jpg"
+												height="80" width="80"> </a>
+									</c:if>
+									<c:if test="${page<maxPage}">
+										<a
+											href="${pageContext.request.contextPath}/videoAction!favlist?p3=${p3+1}"><img
+												alt="影片名称"
+												src="${pageContext.request.contextPath}/images/next.jpg"
+												height="80" width="80"> </a>
+									</c:if>
 								</td>
 							</tr>
 							<tr>

@@ -35,7 +35,6 @@ $(function() {
 						$('#login_block').remove();
 					});
 });
-
 </script>
 
 
