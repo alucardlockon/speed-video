@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>首页 - 速播视频 - Html5视频，电影，电视剧，动漫</title>
+		<title>${video.title} - 速播视频 - Html5视频，电影，电视剧，动漫</title>
 
 		<%@include file="../commons/header.jsp"%>
 		<script type="text/javascript"
@@ -47,6 +47,18 @@ $(function() {
 		})
 })
 $(function() {
+	$('.rateimg').mouseover(function() {
+		var s = this;
+		imgnum = s.id.substring(s.id.indexOf('_') + 1);
+		for (i = 1; i <= imgnum; i++) {
+			document.getElementById('rateimg_' + i).src = 'images/star1.png';
+		}
+		for (i = 10; i > imgnum; i--) {
+			document.getElementById('rateimg_' + i).src = 'images/star2.png';
+		}
+		})
+})
+$(function() {
 	$('.rateimg').ready(function() {
 		var s = this;
 		var sco=${score}*1;
@@ -73,7 +85,7 @@ $(function() {
 						namespace="/">
 					</s:action>
 				</div>
-				<div id="content">
+				<div id="content" style="width: 40%;height:100%">
 					<span id="title">${video.title}</span>
 					<div class="video_content">
 						<video
@@ -113,8 +125,6 @@ $(function() {
 					<br />
 					&nbsp;&nbsp;&nbsp;&nbsp;${video.intro}
 					<br />
-					<span id="comment">评论数:0</span>
-					<br />
 					<span id="views">观看数:${video.views}</span>
 					<br />
 					<div id="comment_form">
@@ -139,15 +149,14 @@ $(function() {
 								<thead>
 									<tr>
 										<td>
-											${row}楼
 											<a href="userAction!userinfo?user.id=${uid}"><img
-													src="images/${user.photo}" alt="" width="60" height="40" />
+													src="images/${user.photo}" alt="" width="120"/>
 											</a>
 										</td>
 									</tr>
 									<tr>
 										<td>
-											&nbsp;用户:
+											${row}楼&nbsp;用户:
 											<a href="userAction!userinfo?user.id=${uid}">${user.username}</a>
 										</td>
 									</tr>

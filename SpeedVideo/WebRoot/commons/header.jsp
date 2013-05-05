@@ -12,13 +12,25 @@
 	src="${pageContext.request.contextPath}/js/mainjs.js">
 </script>
 <script type="text/javascript">
+function checkpwd() {
+	if (document.getElementById('userpwd').value == '') {
+		alert('密码不能为空')
+		return false;
+	} else if (document.getElementById('repassword').value != document
+			.getElementById('userpwd').value) {
+		alert('密码不一致');
+		return false;
+	} else {
+		return true;
+	}
+}
 $(function() {
 	$('#regist')
 			.toggle(
 					function() {
 						$(this)
 								.after(
-										"<div id='regist_block'><form method='post' action='userAction!quickRegist'><table><tr><td>用户名</td></tr><tr><td><input type='text' name='user.username' style='width:70%'></td></tr><tr><td>密码</td></tr><td><input type='text' name='user.password'  style='width:70%'></td></tr><tr><td>重复密码</td></tr><tr><td><input type='text' name='repassword'  style='width:70%'></td></tr><tr><td><input type='submit' value='注册'/></td></tr><tr><td><small><a href='${pageContext.request.contextPath}/desktop/regist.jsp'>完整注册</a></small></td></tr></table></form></div>");
+										"<div id='regist_block'><form method='post' action='userAction!quickRegist' onsubmit='return checkpwd()'><table><tr><td>用户名</td></tr><tr><td><input type='text' name='user.username' style='width:70%'></td></tr><tr><td>密码</td></tr><td><input type='text' name='user.password' id='userpwd'  style='width:70%'></td></tr><tr><td>重复密码</td></tr><tr><td><input type='text' name='repassword' id='repassword' style='width:70%' onblur='checkpwd()'></td></tr><tr><td><input type='submit' value='注册'/></td></tr><tr><td><small><a href='${pageContext.request.contextPath}/desktop/regist.jsp'>完整注册</a></small></td></tr></table></form></div>");
 					}, function() {
 						$('#regist_block').remove();
 					});

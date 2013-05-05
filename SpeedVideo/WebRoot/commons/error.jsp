@@ -8,6 +8,6 @@
   </head>
   
   <body>
-               对不起出错了！返回首页? <br>
+               对不起出错了！返回<a href="${pageContex.getContexPath}/mianAction?p1=1&p2=1&p3=1">首页?</a> <br>
   </body>
 </html>

@@ -3,7 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>首页 - 速播视频 - Html5视频，电影，电视剧，动漫</title>
+		<title>头像上传 - 速播视频 - Html5视频，电影，电视剧，动漫</title>
 
 		<%@include file="../commons/header.jsp"%>
 		<script type="text/javascript"

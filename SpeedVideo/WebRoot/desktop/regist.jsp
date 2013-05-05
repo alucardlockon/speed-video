@@ -3,12 +3,25 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>首页 - 速播视频 - Html5视频，电影，电视剧，动漫</title>
+		<title>注册 - 速播视频 - Html5视频，电影，电视剧，动漫</title>
 		<%@include file="../commons/header.jsp"%>
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/js/userAgent.js">
 </script>
-
+		<script type="text/javascript">
+function fcheckpwd() {
+	if (document.getElementById('fuserpwd').value == '') {
+		alert('密码不能为空')
+		return false;
+	} else if (document.getElementById('frepassword').value != document
+			.getElementById('fuserpwd').value) {
+		alert('密码不一致');
+		return false;
+	} else {
+		return true;
+	}
+}
+</script>
 	</head>
 
 	<body>
@@ -24,7 +37,8 @@
 				</div>
 				<div id="content">
 					<div id='regist_block'>
-						<form method='post' action='userAction!regist'>
+						<form method='post' action='userAction!regist'
+							onsubmit='return fcheckpwd()'>
 							<table>
 								<tr>
 									<td>
@@ -39,7 +53,8 @@
 										密码
 									</td>
 									<td>
-										<input type='text' name='user.password' style='width: 70%'>
+										<input type='text' id='fuserpwd' name='user.password'
+											style='width: 70%'>
 									</td>
 								</tr>
 								<tr>
@@ -47,7 +62,8 @@
 										重复密码
 									</td>
 									<td>
-										<input type='text' name='repassword' style='width: 70%'>
+										<input type='text' name='repassword' id='frepassword'
+											style='width: 70%' onblur='fcheckpwd()'>
 									</td>
 								</tr>
 								<tr>
@@ -78,14 +94,6 @@
 										男
 										<input type="radio" name='user.gender' value='女' />
 										女
-									</td>
-								</tr>
-								<tr>
-									<td>
-										验证码
-									</td>
-									<td>
-										<input type='text' name='validcode' style='width: 70%'>
 									</td>
 								</tr>
 								<tr>
